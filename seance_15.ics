@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dreadlocktopus_Bot V5//Dreadlocktopus_Bot V5//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:seance-15@dreadlocktopus_bot_v5
+DTSTAMP:20260225T080559Z
+DTSTART:20260122T200000Z
+DTEND:20260122T220000Z
+SUMMARY:Mad Heidi — 3D (FragThor)
+DESCRIPTION:Dans une Suisse dystopique tombée sous la coupe fasciste d'un magnat du fromage\, Heidi a une vie simple dans les Alpes. Son grand-père fait de son mieux pour protéger sa petite-fille de la dictature\
+LOCATION:Le Valhalla de Frag
+END:VEVENT
+END:VCALENDAR
