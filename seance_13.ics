@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dreadlocktopus_Bot V5//Dreadlocktopus_Bot V5//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:seance-13@dreadlocktopus_bot_v5
+DTSTAMP:20260225T080547Z
+DTSTART:20260222T220000Z
+DTEND:20260223T000000Z
+SUMMARY:Brotherhood of Lions — 3D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
+DESCRIPTION:A story of the daily lives and struggles of five young lions in the Black Rock region of Kenya’s Masai Mara reserve. Born in 2017\, the lions were given names by the Masai people to suit their persona
+LOCATION:ICI
+END:VEVENT
+END:VCALENDAR
