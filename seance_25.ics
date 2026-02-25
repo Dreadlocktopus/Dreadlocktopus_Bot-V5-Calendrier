@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dreadlocktopus_Bot V5//Dreadlocktopus_Bot V5//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:seance-25@dreadlocktopus_bot_v5
+DTSTAMP:20260225T080533Z
+DTSTART:20260227T200000Z
+DTEND:20260227T220000Z
+SUMMARY:L'Exorciste — 2D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
+DESCRIPTION:Regan\, une adolescente\, présente depuis quelque temps d’étranges symptômes. Après avoir épuisé les solutions médicales\, la mère de Regan consulte un prêtre-psychiatre qui est rapidement convaincu q
+LOCATION:[NSFW]
+END:VEVENT
+END:VCALENDAR
