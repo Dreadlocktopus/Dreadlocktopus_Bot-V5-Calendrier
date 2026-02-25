@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dreadlocktopus_Bot V5//Dreadlocktopus_Bot V5//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:seance-19@dreadlocktopus_bot_v5
+DTSTAMP:20260225T080542Z
+DTSTART:20260223T200000Z
+DTEND:20260223T220000Z
+SUMMARY:Poséidon — 3D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
+DESCRIPTION:Une nuit de Saint Sylvestre festive a commencé au milieu de l'Atlantique Nord\, sur le luxueux navire de croisière Poséidon. De nombreux passagers se sont rassemblés dans l'opulente salle de bal pour 
+LOCATION:
+END:VEVENT
+END:VCALENDAR
