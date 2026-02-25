@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dreadlocktopus_Bot V5//Dreadlocktopus_Bot V5//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:seance-8@dreadlocktopus_bot_v5
+DTSTAMP:20260225T080549Z
+DTSTART:20260222T200000Z
+DTEND:20260222T220000Z
+SUMMARY:Ready Player One — 3D (Statik)
+DESCRIPTION:En 2045\, le monde est au bord du chaos. Les êtres humains se réfugient dans l'OASIS\, univers virtuel mis au point par le brillant et excentrique James Halliday. Avant de disparaître\, celui-ci a déc
+LOCATION:Cinéma
+END:VEVENT
+END:VCALENDAR
