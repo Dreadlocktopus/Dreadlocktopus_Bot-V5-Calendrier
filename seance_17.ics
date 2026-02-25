@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dreadlocktopus_Bot V5//Dreadlocktopus_Bot V5//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:seance-17@dreadlocktopus_bot_v5
+DTSTAMP:20260225T080541Z
+DTSTART:20260223T200000Z
+DTEND:20260223T220000Z
+SUMMARY:Shérif, fais-moi peur ! — S01 Intégrale — 3D (FragThor)
+DESCRIPTION:13 épisodes | Saison produite en 1979 | 1ère diffusion : janvier 1979 sur CBS (U.S.A.)
+LOCATION:Le Valhalla de Frag
+END:VEVENT
+END:VCALENDAR
