@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dreadlocktopus_Bot V5//Dreadlocktopus_Bot V5//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:seance-3@dreadlocktopus_bot_v5
+DTSTAMP:20260225T080557Z
+DTSTART:20260222T062800Z
+DTEND:20260222T082800Z
+SUMMARY:Moi sous la douche, concert 2026  —  Moi même — 2D (Zaz)
+DESCRIPTION:Artiste / Compagnie : Moi même
+LOCATION:Séquence en full no vision avec audio dolby douche avec résonnance puissance 4
+END:VEVENT
+END:VCALENDAR
