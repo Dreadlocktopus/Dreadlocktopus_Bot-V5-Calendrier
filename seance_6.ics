@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dreadlocktopus_Bot V5//Dreadlocktopus_Bot V5//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:seance-6@dreadlocktopus_bot_v5
+DTSTAMP:20260225T080536Z
+DTSTART:20260225T200000Z
+DTEND:20260225T220000Z
+SUMMARY:Love Actually — 3D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
+DESCRIPTION:L'amour est partout\, imprévisible\, inexplicable\, insurmontable. Il frappe quand il veut et souvent\, ça fait pas mal de dégâts... Pour le nouveau Premier Ministre britannique\, il va prendre la jol
+LOCATION:Prout
+END:VEVENT
+END:VCALENDAR
