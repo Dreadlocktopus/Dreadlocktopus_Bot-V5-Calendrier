@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dreadlocktopus_Bot V5//Dreadlocktopus_Bot V5//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:seance-23@dreadlocktopus_bot_v5
+DTSTAMP:20260225T080548Z
+DTSTART:20260222T220000Z
+DTEND:20260223T000000Z
+SUMMARY:Mad Heidi — 3D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
+DESCRIPTION:Dans une Suisse dystopique tombée sous la coupe fasciste d'un magnat du fromage\, Heidi a une vie simple dans les Alpes. Son grand-père fait de son mieux pour protéger sa petite-fille de la dictature\
+LOCATION:
+END:VEVENT
+END:VCALENDAR
