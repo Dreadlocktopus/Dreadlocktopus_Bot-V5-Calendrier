@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dreadlocktopus_Bot V5//Dreadlocktopus_Bot V5//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:seance-7@dreadlocktopus_bot_v5
+DTSTAMP:20260225T080535Z
+DTSTART:20260225T200000Z
+DTEND:20260225T220000Z
+SUMMARY:Beetlejuice Beetlejuice — 3D (nicolas.dumont)
+DESCRIPTION:À la suite d'une tragédie familiale inattendue\, trois générations de la famille Deetz rentrent dans leur maison à Winter River\, toujours hantée par Beetlejuice. Là-bas\, Lydia voit sa vie prendre un
+LOCATION:BigscreenFr  Beetlejuice Beetlejuice
+END:VEVENT
+END:VCALENDAR
