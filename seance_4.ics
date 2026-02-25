@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dreadlocktopus_Bot V5//Dreadlocktopus_Bot V5//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:seance-4@dreadlocktopus_bot_v5
+DTSTAMP:20260225T080525Z
+DTSTART:20260321T200000Z
+DTEND:20260321T220000Z
+SUMMARY:One Piece — S172 Ép. 1-36780 — 3D (Statik)
+DESCRIPTION:Une aventure en haute mer légendaire et unique en son genre. Monkey D. Luffy est un jeune aventurier qui a toujours rêvé d'une vie de liberté. Quittant son village\, il se lance dans un périlleux voya
+LOCATION:Test
+END:VEVENT
+END:VCALENDAR
