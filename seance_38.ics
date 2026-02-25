@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dreadlocktopus_Bot V5//Dreadlocktopus_Bot V5//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:seance-38@dreadlocktopus_bot_v5
+DTSTAMP:20260225T080530Z
+DTSTART:20260301T200000Z
+DTEND:20260301T220000Z
+SUMMARY:Ugly Betty — S01 Ép. 1 — 2D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
+DESCRIPTION:Betty Suarez n'est pas spécialement belle\, mais elle est douce\, intelligente et travaille dur. Dans un monde régi par les apparences\, ses qualités sont invisibles. Pourtant\, le président de Meade 
+LOCATION:
+END:VEVENT
+END:VCALENDAR
