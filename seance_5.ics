@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dreadlocktopus_Bot V5//Dreadlocktopus_Bot V5//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:seance-5@dreadlocktopus_bot_v5
+DTSTAMP:20260225T080531Z
+DTSTART:20260227T200000Z
+DTEND:20260227T220000Z
+SUMMARY:Titanic — 3D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
+DESCRIPTION:Southampton\, 10 avril 1912. Le paquebot le plus grand et le plus moderne du monde\, réputé pour son insubmersibilité\, le « Titanic »\, appareille pour son premier voyage. Quatre jours plus tard\, il
+LOCATION:Iceberg
+END:VEVENT
+END:VCALENDAR
