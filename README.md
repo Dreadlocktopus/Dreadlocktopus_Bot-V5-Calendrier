@@ -1,2 +1,2 @@
 # Dreadlocktopus_Bot-V5-Calendrier
-Programmation Bigscreen Cinéma
+Bot de Programmation pour les diffusions de la communauté BigscreenFR.fr enrichi de fonctionnalités sociales.
