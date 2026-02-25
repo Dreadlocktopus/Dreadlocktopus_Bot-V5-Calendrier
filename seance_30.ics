@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dreadlocktopus_Bot V5//Dreadlocktopus_Bot V5//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:seance-30@dreadlocktopus_bot_v5
+DTSTAMP:20260225T080539Z
+DTSTART:20260224T200000Z
+DTEND:20260224T220000Z
+SUMMARY:Fallout — S01 Intégrale — 3D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
+DESCRIPTION:Tirée de l'un des plus grands jeux vidéo de tous les temps\, Fallout est une histoire d'inégalités dans un monde où tous sont égaux face au chaos. Deux cents ans après l'apocalypse\, les pacifiques ha
+LOCATION:TEST
+END:VEVENT
+END:VCALENDAR
