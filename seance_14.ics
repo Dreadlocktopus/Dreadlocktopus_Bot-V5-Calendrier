@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Dreadlocktopus_Bot V5//Dreadlocktopus_Bot V5//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:seance-14@dreadlocktopus_bot_v5
+DTSTAMP:20260225T080541Z
+DTSTART:20260223T200000Z
+DTEND:20260223T220000Z
+SUMMARY:Astérix & Obélix : Mission Cléopâtre — 2D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
+DESCRIPTION:Cléopâtre\, la reine d’Égypte\, décide\, pour défier l’empereur romain Jules César\, de construire en trois mois un palais somptueux en plein désert. Si elle y parvient\, celui‐ci devra concéder publi
+LOCATION:TEST
+END:VEVENT
+END:VCALENDAR
