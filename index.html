@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="generated-at" content="1772006720">
+<title>Dreadlocktopus_Bot V5 Calendrier</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<style>
+:root{--bg:#0d1117;--bg2:#161b22;--bg3:#21262d;--border:#30363d;--accent:#1E90FF;--accent2:#58a6ff;--text:#e6edf3;--text2:#8b949e;--green:#3fb950;--purple:#bc8cff;--radius:12px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;}
+header{background:linear-gradient(135deg,#0d1117,#1a1f2e,#0d1117);border-bottom:1px solid var(--border);padding:2rem 1rem;text-align:center;}
+header h1{font-size:2.2rem;color:var(--accent2);letter-spacing:1px;}
+header p{color:var(--text2);margin-top:.4rem;}
+.stats-bar{display:flex;justify-content:center;gap:2rem;margin-top:1.2rem;flex-wrap:wrap;}
+.stat{text-align:center;}.stat-num{font-size:1.6rem;font-weight:700;color:var(--accent2);}.stat-label{font-size:.8rem;color:var(--text2);}
+nav{display:flex;justify-content:center;gap:.5rem;padding:.8rem;background:var(--bg2);border-bottom:1px solid var(--border);flex-wrap:wrap;position:sticky;top:0;z-index:100;}
+nav a{color:var(--text2);text-decoration:none;padding:.4rem 1rem;border-radius:20px;font-size:.9rem;transition:all .2s;}
+nav a:hover{background:var(--bg3);color:var(--text);}
+main{max-width:1100px;margin:0 auto;padding:2rem 1rem;}
+section{margin-bottom:3rem;}
+section h2{font-size:1.4rem;margin-bottom:1.2rem;padding-bottom:.6rem;border-bottom:2px solid var(--border);color:var(--accent2);}
+.toolbar{display:flex;gap:.8rem;margin-bottom:1rem;flex-wrap:wrap;align-items:center;}
+#search{flex:1;min-width:200px;padding:.7rem 1rem;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-size:1rem;outline:none;}
+#search:focus{border-color:var(--accent);}
+.btn-ical-global{display:inline-flex;align-items:center;gap:.4rem;background:var(--bg3);border:1px solid var(--border);color:var(--accent2);padding:.45rem 1rem;border-radius:8px;text-decoration:none;font-size:.85rem;transition:all .2s;}
+.btn-ical-global:hover{border-color:var(--accent);}
+.btn-webcal{color:#a8d8a8;border-color:#3a5a3a;}.btn-webcal:hover{border-color:#3fb950;background:#1a3a1a;}
+.btn-gcal{color:#f5c842;border-color:#5a4a1a;}.btn-gcal:hover{border-color:#f5c842;background:#2a2a0a;}
+.tri-groupe{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;}
+.tri-btn{background:var(--bg3);border:1px solid var(--border);color:var(--text2);padding:.3rem .75rem;border-radius:20px;cursor:pointer;font-size:.8rem;transition:all .2s;white-space:nowrap;}
+.tri-btn.active,.tri-btn:hover{background:var(--purple);border-color:var(--purple);color:#fff;font-weight:600;}
+.filtres{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.filtre-btn{background:var(--bg3);border:1px solid var(--border);color:var(--text2);padding:.35rem .8rem;border-radius:20px;cursor:pointer;font-size:.82rem;transition:all .2s;white-space:nowrap;}
+.filtre-btn.active,.filtre-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600;}
+.cards{display:flex;flex-direction:column;gap:1.2rem;}
+.card{display:flex;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .2s,transform .2s;}
+.card:hover{border-color:var(--accent);transform:translateY(-2px);}.card.passee{opacity:.65;}
+.card-poster{flex-shrink:0;width:140px;overflow:hidden;}
+.affiche{width:140px;height:210px;object-fit:cover;display:block;transition:transform .2s;}.affiche:hover{transform:scale(1.04);}
+.affiche-placeholder{width:140px;height:210px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:2.5rem;}
+.card-body{flex:1;padding:1rem;display:flex;flex-direction:column;gap:.4rem;}
+.card-header-row{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem;flex-wrap:wrap;}
+.card-titre{font-size:1.15rem;font-weight:700;color:var(--text);}.card-titre:hover{color:var(--accent2);}
+.badges{display:flex;gap:.4rem;flex-wrap:wrap;}
+.badge{padding:.2rem .6rem;border-radius:20px;font-size:.75rem;font-weight:600;white-space:nowrap;}
+.badge-3d{background:#1a3a5c;color:#58a6ff;border:1px solid var(--accent);}.badge-2d{background:#2d1f52;color:var(--purple);border:1px solid #8b5cf6;}
+.badge-avenir{background:#1a3a1a;color:var(--green);border:1px solid var(--green);}.badge-passee{background:#2d2d2d;color:var(--text2);border:1px solid var(--border);}
+.badge-type{background:#1a2a1a;color:#aaa;border:1px solid #444;}
+.horaires{display:flex;gap:1rem;flex-wrap:wrap;}.horaire-bloc{display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;}
+.heure{font-size:.9rem;font-weight:600;color:var(--accent2);}.decalage{font-size:.78rem;color:var(--text2);}
+.meta{display:flex;gap:.8rem;flex-wrap:wrap;font-size:.82rem;color:var(--text2);}
+.resume{font-size:.875rem;color:var(--text2);line-height:1.5;}
+.serie-info{background:#1a2a3a;color:#58a6ff;border:1px solid #2a4a6a;padding:.15rem .5rem;border-radius:12px;font-size:.8rem;font-weight:600;}
+.card-actions{margin-top:auto;display:flex;gap:.5rem;flex-wrap:wrap;}
+.btn-ical{display:inline-flex;align-items:center;gap:.3rem;background:var(--bg3);border:1px solid var(--border);color:var(--text2);padding:.3rem .7rem;border-radius:8px;text-decoration:none;font-size:.78rem;transition:all .2s;cursor:pointer;}
+.btn-ical:hover{border-color:var(--accent);color:var(--accent2);}
+.btn-trailer{color:#ff4444;border-color:#5a2222;}.btn-trailer:hover{border-color:#ff4444;background:#2a0a0a;}
+.btn-voir-plus{color:#bc8cff;border-color:#3a2a5a;}.btn-voir-plus:hover{border-color:#bc8cff;background:#1a0a2a;}
+.btn-gcal{color:#f5c842;border-color:#5a4a1a;}.btn-gcal:hover{border-color:#f5c842;background:#2a2a0a;}
+.btn-webcal{color:#3fb950;border-color:#1a4a2a;}.btn-webcal:hover{border-color:#3fb950;background:#0a2a1a;}
+.modal-overlay{display:none;position:fixed;inset:0;background:#000c;z-index:1000;align-items:center;justify-content:center;padding:1rem;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);max-width:800px;width:100%;max-height:90vh;overflow-y:auto;position:relative;}
+.modal-close{position:absolute;top:.8rem;right:1rem;background:none;border:none;color:var(--text2);font-size:1.5rem;cursor:pointer;z-index:10;padding:.2rem .5rem;}
+.modal-close:hover{color:var(--text);}
+.modal-poster{width:100%;max-height:440px;object-fit:cover;border-radius:var(--radius) var(--radius) 0 0;display:block;}
+.modal-body{padding:1.5rem;}.modal-titre{font-size:1.5rem;font-weight:700;margin-bottom:.8rem;}
+.modal-meta{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:.8rem;}
+.modal-resume{color:var(--text2);line-height:1.6;margin:.8rem 0;}
+.modal-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1rem;}
+.modal-ical{display:inline-flex;align-items:center;gap:.4rem;background:var(--accent);color:#fff;padding:.5rem 1.2rem;border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:600;}
+.modal-ical:hover{opacity:.85;}
+.modal-webcal{display:inline-flex;align-items:center;gap:.4rem;background:#2ECC71;color:#fff;padding:.5rem 1.2rem;border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:600;}
+.modal-webcal:hover{opacity:.85;}
+.modal-gcal{display:inline-flex;align-items:center;gap:.4rem;background:#f5c842;color:#1a1a00;padding:.5rem 1.2rem;border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:600;}
+.modal-gcal:hover{opacity:.85;}
+.modal-voir-plus{display:inline-flex;align-items:center;gap:.4rem;background:#bc8cff22;border:1px solid #bc8cff;color:#bc8cff;padding:.5rem 1.2rem;border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:600;}
+.modal-voir-plus:hover{background:#bc8cff33;}
+.modal-trailer{margin:.8rem 0;border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;background:#000;}
+.modal-trailer img{width:100%;display:block;opacity:.85;transition:opacity .2s;border-radius:var(--radius);}
+.modal-trailer:hover img{opacity:1;}
+.modal-trailer-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;}
+.modal-trailer-play svg{width:68px;height:68px;filter:drop-shadow(0 2px 8px #000a);}
+#calendrier-container{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem;}
+.cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:.8rem;gap:.5rem;}
+.cal-mois-titre{font-size:1.15rem;font-weight:700;color:var(--accent2);text-align:center;flex:1;}
+.cal-nav-btn{background:var(--bg3);border:1px solid var(--border);color:var(--accent2);padding:.45rem 1.1rem;border-radius:8px;cursor:pointer;font-size:.95rem;font-weight:600;display:flex;align-items:center;gap:.4rem;}
+.cal-nav-btn:hover{background:var(--bg);border-color:var(--accent);}
+.vue-selector{display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap;}
+.vue-btn{background:var(--bg3);border:1px solid var(--border);color:var(--text2);padding:.3rem .85rem;border-radius:20px;cursor:pointer;font-size:.82rem;transition:all .2s;}
+.vue-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600;}
+#cal-table{width:100%;border-collapse:collapse;table-layout:fixed;}
+#cal-table th{padding:.5rem .2rem;text-align:center;font-size:.75rem;color:var(--text2);background:var(--bg3);border-bottom:1px solid var(--border);}
+#cal-table td.jour{padding:.3rem;vertical-align:top;border:1px solid var(--border);min-height:60px;word-break:break-word;}
+#cal-table td.vide{background:var(--bg);border:1px solid var(--border);}
+#cal-table td.has-seance{background:#0d1f35;}
+.num-jour{display:block;font-weight:600;font-size:.75rem;color:var(--text2);margin-bottom:.2rem;}
+.cal-event{display:block;font-size:.68rem;padding:.2rem .3rem;border-radius:4px;margin-bottom:.2rem;cursor:pointer;line-height:1.3;}
+.cal-titre-film{display:block;font-weight:600;margin-top:.1rem;}
+.cal-3d{background:#1a3a5c;color:#58a6ff;}.cal-2d{background:#2d1f52;color:var(--purple);}
+.cal-event:hover{opacity:.8;}
+.semaine-bloc,.jour-bloc{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:.8rem 1rem;margin-bottom:.8rem;}
+.semaine-titre,.jour-titre{font-size:.9rem;font-weight:700;color:var(--accent2);margin-bottom:.6rem;padding-bottom:.4rem;border-bottom:1px solid var(--border);}
+.semaine-event{display:flex;align-items:center;gap:.6rem;padding:.4rem .6rem;border-radius:8px;font-size:.85rem;color:var(--text);margin-bottom:.4rem;cursor:pointer;}
+.semaine-event:hover{opacity:.8;}
+.semaine-event.cal-3d{background:#1a3a5c55;border-left:3px solid #58a6ff;}.semaine-event.cal-2d{background:#2d1f5255;border-left:3px solid var(--purple);}
+.semaine-date{font-size:.78rem;color:var(--text2);min-width:130px;}
+.diffuseurs-grid{display:flex;flex-wrap:wrap;gap:1rem;}
+.diffuseur-card{display:flex;align-items:center;gap:.8rem;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem 1.2rem;}
+.diff-avatar{font-size:1.6rem;}.diff-info{flex:1;}.diff-nom{font-weight:600;margin-bottom:.2rem;}
+.diff-stats{font-size:.8rem;color:var(--text2);}
+.graphs-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.graph-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;}
+.graph-card h3{font-size:1rem;color:var(--accent2);margin-bottom:1rem;}.graph-card.full{grid-column:1/-1;}
+footer{text-align:center;padding:2rem;color:var(--text2);font-size:.85rem;border-top:1px solid var(--border);margin-top:2rem;}
+.vide-msg{color:var(--text2);font-style:italic;padding:1rem 0;}
+/* ── HISTORIQUE ACCORDÉON ───────────────────────────────────────── */
+.histo-toggle{display:flex;align-items:center;justify-content:space-between;gap:1rem;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.4rem;cursor:pointer;transition:border-color .2s;width:100%;text-align:left;}
+.histo-toggle:hover{border-color:var(--accent);}
+.histo-toggle-label{display:flex;align-items:center;gap:.8rem;font-size:1rem;font-weight:600;color:var(--text);}
+.histo-toggle-count{background:var(--bg3);border:1px solid var(--border);color:var(--text2);padding:.2rem .7rem;border-radius:20px;font-size:.8rem;}
+.histo-toggle-arrow{color:var(--accent2);font-size:1.1rem;transition:transform .3s;}
+.histo-toggle.open .histo-toggle-arrow{transform:rotate(90deg);}
+.histo-panel{display:none;margin-top:.8rem;}
+.histo-panel.open{display:block;}
+.histo-search{width:100%;padding:.6rem 1rem;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);color:var(--text);font-size:.9rem;outline:none;margin-bottom:1rem;}
+.histo-search:focus{border-color:var(--accent);}
+.histo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:1rem;}
+.histo-item{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:border-color .2s,transform .2s;}
+.histo-item:hover{border-color:var(--accent);transform:translateY(-2px);}
+.histo-affiche{width:100%;height:200px;object-fit:cover;display:block;}
+.histo-affiche-ph{width:100%;height:200px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:2.5rem;}
+.histo-info{padding:.6rem .7rem;}
+.histo-titre{font-size:.82rem;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:.3rem;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+.histo-meta{display:flex;flex-wrap:wrap;gap:.3rem;}
+.histo-badge-nb{background:#1a3a1a;color:var(--green);border:1px solid var(--green);padding:.15rem .5rem;border-radius:12px;font-size:.72rem;font-weight:600;}
+.histo-badge-type{background:var(--bg3);color:var(--text2);border:1px solid var(--border);padding:.15rem .5rem;border-radius:12px;font-size:.72rem;}
+/* modale historique */
+.histo-modal-overlay{display:none;position:fixed;inset:0;background:#000d;z-index:1100;align-items:center;justify-content:center;padding:1rem;}
+.histo-modal-overlay.open{display:flex;}
+.histo-modal{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);max-width:680px;width:100%;max-height:88vh;overflow-y:auto;position:relative;}
+.histo-modal-close{position:absolute;top:.8rem;right:1rem;background:none;border:none;color:var(--text2);font-size:1.4rem;cursor:pointer;z-index:10;padding:.2rem .5rem;}
+.histo-modal-close:hover{color:var(--text);}
+.histo-modal-header{display:flex;gap:1rem;padding:1.2rem;border-bottom:1px solid var(--border);}
+.histo-modal-poster{width:80px;height:120px;object-fit:cover;border-radius:8px;flex-shrink:0;}
+.histo-modal-poster-ph{width:80px;height:120px;background:var(--bg3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;}
+.histo-modal-info{flex:1;}
+.histo-modal-titre{font-size:1.2rem;font-weight:700;margin-bottom:.5rem;}
+.histo-modal-stats{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.5rem;}
+.histo-modal-resume{font-size:.85rem;color:var(--text2);line-height:1.5;}
+.histo-diffusions{padding:1rem 1.2rem;}
+.histo-diffusions h4{font-size:.9rem;color:var(--accent2);margin-bottom:.7rem;border-bottom:1px solid var(--border);padding-bottom:.4rem;}
+.histo-diff-row{display:flex;align-items:center;gap:.8rem;padding:.5rem .6rem;border-radius:8px;margin-bottom:.3rem;background:var(--bg3);font-size:.84rem;}
+.histo-diff-row:hover{background:var(--bg);}
+.histo-diff-date{color:var(--text2);min-width:130px;font-size:.8rem;}
+.histo-diff-fmt{padding:.15rem .5rem;border-radius:10px;font-size:.72rem;font-weight:600;}
+.histo-diff-fmt.d3{background:#1a3a5c;color:#58a6ff;border:1px solid var(--accent);}
+.histo-diff-fmt.d2{background:#2d1f52;color:var(--purple);border:1px solid #8b5cf6;}
+.histo-diff-salle{color:var(--text2);font-size:.8rem;}
+.histo-diff-diff{color:var(--text2);font-size:.8rem;}
+/* ── SECTION LIVE ────────────────────────────────────────────── */
+#live{margin-bottom:2rem;}
+#live-titre{font-size:1.15rem;font-weight:700;color:var(--accent2);margin-bottom:.8rem;}
+.live-badge{animation:pulse 1.5s infinite;display:inline-block;background:#ff2222;color:#fff;padding:.2rem .7rem;border-radius:20px;font-size:.78rem;font-weight:700;vertical-align:middle;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.5;}}
+.live-card{display:flex;align-items:center;gap:1rem;background:linear-gradient(135deg,#1a0808,#2a1010);border:1.5px solid #ff2222;border-radius:var(--radius);padding:1rem 1.2rem;margin-bottom:.8rem;cursor:pointer;}
+.live-card:hover{border-color:#ff6666;}
+.live-poster{width:60px;height:90px;object-fit:cover;border-radius:8px;flex-shrink:0;}
+.live-info{flex:1;min-width:0;}
+.live-titre-film{font-size:1.05rem;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.live-meta{font-size:.82rem;color:var(--text2);margin-top:.3rem;line-height:1.5;}
+.live-progress{width:100%;height:6px;background:#333;border-radius:3px;margin-top:.6rem;overflow:hidden;}
+.live-progress-bar{height:100%;background:linear-gradient(90deg,#ff2222,#ff6666);border-radius:3px;transition:width .5s;}
+/* ── CARROUSEL 48H ─────────────────────────────────────────── */
+.prochains-container{position:relative;padding:0 20px;}
+.prochains-titre{font-size:.95rem;font-weight:700;color:var(--accent2);margin-bottom:.8rem;padding:.3rem 0;border-bottom:1px solid var(--border);}
+.prochains-carousel{overflow:hidden;}
+.prochains-inner{display:flex;gap:1rem;transition:transform .35s ease;will-change:transform;}
+.prochain-card{flex-shrink:0;width:120px;cursor:pointer;}
+.prochain-card:hover .prochain-affiche{transform:scale(1.04);box-shadow:0 0 14px #1E90FF88;}
+.prochain-affiche{width:120px;height:180px;object-fit:cover;border-radius:8px;border:1px solid var(--border);transition:transform .2s,box-shadow .2s;display:block;}
+.prochain-affiche-ph{width:120px;height:180px;background:var(--bg3);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;border:1px solid var(--border);}
+.prochain-info{margin-top:.4rem;font-size:.72rem;text-align:center;color:var(--text2);line-height:1.4;}
+.prochain-heure{font-weight:700;color:var(--accent2);font-size:.8rem;}
+.prochain-titre-court{overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;}
+.carousel-btn{position:absolute;top:90px;transform:translateY(-50%);background:var(--bg3);border:1px solid var(--border);color:var(--accent2);width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;z-index:10;transition:all .2s;padding:0;}
+.carousel-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff;}
+.carousel-btn.prev{left:0;}.carousel-btn.next{right:0;}
+.carousel-btn:disabled{opacity:.25;cursor:default;pointer-events:none;}
+#live-refresh-info{font-size:.7rem;color:var(--text2);margin-top:.6rem;text-align:right;opacity:.6;}
+
+/* ── RESPONSIVE TABLETTE (≤900px) ───────────────────────────── */
+@media(max-width:900px){
+  header h1{font-size:1.7rem;}
+  .graphs-grid{grid-template-columns:1fr;}
+  .graph-card.full{grid-column:1;}
+  .modal{max-width:98vw;}
+  .modal-poster{max-height:320px;}
+}
+
+/* ── RESPONSIVE MOBILE (≤600px) ─────────────────────────────── */
+@media(max-width:600px){
+  /* Header */
+  header{padding:1.2rem .8rem;}
+  header h1{font-size:1.35rem;letter-spacing:0;}
+  header p{font-size:.78rem;}
+  .stats-bar{gap:1rem;margin-top:.8rem;}
+  .stat-num{font-size:1.2rem;}
+  .stat-label{font-size:.72rem;}
+
+  /* Nav */
+  nav{padding:.5rem .4rem;gap:.3rem;overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  nav::-webkit-scrollbar{display:none;}
+  nav a{padding:.35rem .7rem;font-size:.78rem;white-space:nowrap;flex-shrink:0;}
+
+  /* Main */
+  main{padding:1rem .6rem;}
+  section{margin-bottom:2rem;}
+  section h2{font-size:1.1rem;}
+
+  /* Toolbar & agenda buttons */
+  .toolbar{flex-direction:column;gap:.5rem;}
+  #search{width:100%;min-width:unset;}
+  .btn-ical-global{width:100%;justify-content:center;padding:.55rem;font-size:.82rem;}
+
+  /* Filtres */
+  .filtres{overflow-x:auto;flex-wrap:nowrap;padding-bottom:.4rem;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+  .filtres::-webkit-scrollbar{display:none;}
+  .filtre-btn{flex-shrink:0;font-size:.78rem;padding:.3rem .65rem;}
+
+  /* Cartes séances */
+  .card{flex-direction:column;}
+  .card-poster{width:100%;height:auto;max-height:200px;overflow:hidden;}
+  .affiche{width:100%;height:200px;object-fit:cover;}
+  .affiche-placeholder{width:100%;height:130px;}
+  .card-body{padding:.75rem;gap:.35rem;}
+  .card-titre{font-size:1rem;}
+  .badges{gap:.3rem;}
+  .badge{font-size:.7rem;padding:.15rem .45rem;}
+  .horaires{flex-direction:column;gap:.3rem;}
+  .card-actions{gap:.4rem;flex-wrap:wrap;}
+  .btn-ical{font-size:.73rem;padding:.3rem .55rem;}
+
+  /* Calendrier */
+  #calendrier-container{padding:.6rem;}
+  .cal-nav-btn{padding:.35rem .6rem;font-size:.82rem;}
+  .cal-mois-titre{font-size:.95rem;}
+  .vue-selector{gap:.3rem;}
+  .vue-btn{font-size:.75rem;padding:.25rem .6rem;}
+  #cal-table th{font-size:.62rem;padding:.3rem .1rem;}
+  #cal-table td.jour{padding:.2rem;min-height:44px;}
+  .num-jour{font-size:.65rem;}
+  .cal-event{font-size:.6rem;padding:.15rem .2rem;}
+  .cal-titre-film{font-size:.6rem;}
+  .semaine-date{min-width:90px;font-size:.72rem;}
+  .semaine-event{font-size:.78rem;gap:.4rem;}
+
+  /* Modale */
+  .modal-overlay{padding:.3rem;align-items:flex-end;}
+  .modal{border-radius:var(--radius) var(--radius) 0 0;max-height:95vh;width:100%;}
+  .modal-poster{max-height:220px;border-radius:var(--radius) var(--radius) 0 0;}
+  .modal-body{padding:1rem .9rem;}
+  .modal-titre{font-size:1.15rem;margin-bottom:.6rem;}
+  .modal-meta{gap:.5rem;}
+  .modal-actions{flex-direction:column;gap:.5rem;}
+  .modal-ical,.modal-webcal,.modal-gcal,.modal-voir-plus{width:100%;justify-content:center;padding:.55rem 1rem;font-size:.85rem;}
+  .modal-trailer{margin:.6rem 0;}
+
+  /* Diffuseurs */
+  .diffuseurs-grid{gap:.6rem;}
+  .diffuseur-card{padding:.6rem .9rem;}
+
+  /* Graphiques */
+  .graphs-grid{grid-template-columns:1fr;gap:1rem;}
+  .graph-card{padding:.9rem;}
+  .graph-card h3{font-size:.9rem;margin-bottom:.7rem;}
+  /* Historique */
+  .histo-grid{grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:.7rem;}
+  .histo-affiche,.histo-affiche-ph{height:160px;}
+  .histo-modal-header{flex-direction:column;}
+  .histo-modal-poster,.histo-modal-poster-ph{width:100%;height:160px;border-radius:var(--radius) var(--radius) 0 0;}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>🎬  Dreadlocktopus_Bot V5 Calendrier</h1>
+  <p>Programmation officielle • Mis à jour le mercredi 25 février 2026  —  09:05</p>
+  <div class="stats-bar">
+    <div class="stat"><div class="stat-num">18</div><div class="stat-label">À venir</div></div>
+    <div class="stat"><div class="stat-num">36</div><div class="stat-label">Total</div></div>
+    <div class="stat"><div class="stat-num">30</div><div class="stat-label">Titres uniques</div></div>
+    <div class="stat"><div class="stat-num">2 jours</div><div class="stat-label">Ce mois ⏱️</div></div>
+    <div class="stat"><div class="stat-num">3j 1h</div><div class="stat-label">Cette année ⏱️</div></div>
+  </div>
+</header>
+<nav>
+  <a href="#calendrier">📅 Calendrier</a>
+  <a href="#live">🔴 En cours</a>
+  <a href="#a-venir">🎬 À venir</a>
+  <a href="#historique">📼 Historique</a>
+  <a href="#diffuseurs">📡 Diffuseurs</a>
+  <a href="#graphiques">📊 Stats</a>
+</nav>
+<main>
+  <div class="toolbar">
+    <input type="text" id="search" placeholder="🔍  Rechercher…" oninput="filtrer()">
+    <a class="btn-ical-global" href="dreadlocktopus_bot_v5.ics?v=1772006720" download="dreadlocktopus_bot_v5.ics">📅 Télécharger (.ics)</a>
+    <a class="btn-ical-global btn-gcal" href="https://calendar.google.com/calendar/r?cid=https%3A%2F%2FDreadlocktopus.github.io%2FDreadlocktopus_Bot-V5-Calendrier%2Fdreadlocktopus_bot_v5.ics" target="_blank" rel="noopener">🗓️ Google Agenda</a>
+    <a class="btn-ical-global btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/dreadlocktopus_bot_v5.ics">🍎 Apple Agenda</a>
+  </div>
+  <div class="toolbar" style="margin-top:.5rem">
+    <div class="tri-groupe">
+      <span style="font-size:.82rem;color:var(--text2);white-space:nowrap">Trier :</span>
+      <button class="tri-btn active" id="tri-date"  onclick="setTri('date',this)">📅 Date</button>
+      <button class="tri-btn"        id="tri-titre" onclick="setTri('titre',this)">🔤 Titre</button>
+      <button class="tri-btn"        id="tri-type"  onclick="setTri('type',this)">📂 Type</button>
+      <button class="tri-btn"        id="tri-note"  onclick="setTri('note',this)">⭐ Note</button>
+    </div>
+  </div>
+  <div class="filtres">
+    <button class="filtre-btn active" onclick="setFiltre('',this)">🌐 Tout</button>
+    <button class="filtre-btn" onclick="setFiltre('movie',this)">🎬 Films</button>
+    <button class="filtre-btn" onclick="setFiltre('tv',this)">📺 Séries</button>
+    <button class="filtre-btn" onclick="setFiltre('anime',this)">🍥 Animés</button>
+    <button class="filtre-btn" onclick="setFiltre('doc',this)">🎙️ Docs</button>
+    <button class="filtre-btn" onclick="setFiltre('concert',this)">🎤 Concerts</button>
+    <button class="filtre-btn" onclick="setFiltre('spectacle',this)">🎭 Spectacles</button>
+  </div>
+  <section id="calendrier">
+    <h2>📅  Calendrier des diffusions</h2>
+    <div id="calendrier-container">
+      <div class="cal-nav">
+        <button class="cal-nav-btn" onclick="naviguer(-1)">&#9664; <span id="label-prec"></span></button>
+        <span class="cal-mois-titre" id="titre-mois"></span>
+        <button class="cal-nav-btn" onclick="naviguer(1)"><span id="label-suiv"></span> &#9654;</button>
+      </div>
+      <div class="vue-selector">
+        <button class="vue-btn active" onclick="setVue('mois',this)">📅 Mois</button>
+        <button class="vue-btn" onclick="setVue('semaine',this)">📆 Semaine</button>
+        <button class="vue-btn" onclick="setVue('jour',this)">📋 Jour</button>
+      </div>
+      <div id="cal-body"></div>
+    </div>
+  </section>
+  <section id="live">
+    <h2 id="live-titre">🎬  En diffusion actuellement</h2>
+    <div id="live-container"></div>
+  </section>
+
+  <section id="a-venir">
+    <h2>🎬  Prochaines diffusions <small style="font-size:.9rem;color:var(--text2)">(18 séance(s))</small></h2>
+    <div class="cards" id="cards-avenir">
+<div class="card film" id="seance-28" data-type="film">
+  <div class="card-poster" onclick="ouvrirDetail(28)" style="cursor:pointer"><img src="https://image.tmdb.org/t/p/w500/uJp66jFj6a0eUu7Cf20xFwJd4l3.jpg" alt="La Méthode Williams" class="affiche" loading="lazy" onclick="ouvrirDetail(28)"></div>
+  <div class="card-body">
+    <div class="card-header-row"><h3 class="card-titre" onclick="ouvrirDetail(28)" style="cursor:pointer">La Méthode Williams</h3><div class="badges"><span class="badge badge-3d">🥽 3D</span> <span class="badge badge-type">🎬 Film</span> <span class="badge badge-avenir">À venir</span></div></div>
+    <div class="horaires"><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> <span class="heure">mercredi 25 février 2026  —  20:45</span></div><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="6" height="3" fill="#fff"/><rect width="1.5" height="3" fill="#D80621"/><rect x="4.5" width="1.5" height="3" fill="#D80621"/><path d="M3,0.35 L3.18,0.8 L3.65,0.72 L3.35,1.05 L3.5,1.05 L3,1.45 L2.5,1.05 L2.65,1.05 L2.35,0.72 L2.82,0.8 Z" fill="#D80621"/></svg></span> <span class="heure">mercredi 25 février 2026  —  14:45</span><span class="decalage"> (−6h)</span></div></div>
+    <div class="meta"><span class="salle">🏠 Secoto_fr_3D</span><span class="diffuseur">📡 (◉‿◉) S҉E҉C҉O҉T҉O҉ (◉‿◉)</span><span class="note">⭐ 7.6/10</span><span class="duree">⏱️ 2h24</span><span class="date-sortie">📅 2021</span><span class="classification">✅ Tous publics</span></div><p class="resume">Focus sur la personnalité de l'entraîneur de tennis Richard Williams, père des joueuses mondiales Venus et Serena. Il n'avait aucune expérience dans le sport mais lorsque ses filles ont eu quatre ans, il a élaboré un plan de 78 pages décrivant l'entraînement des futures championnes. Les sœurs Willia…</p>
+    <div class="card-actions"><a class="btn-ical" href="seance_28.ics" download="seance_28.ics">📅 iCal</a><a class="btn-ical btn-gcal" href="https://calendar.google.com/calendar/r?cid=https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_28.ics" target="_blank" rel="noopener">🗓️ Google</a><a class="btn-ical btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_28.ics">🍎 Apple</a><a class="btn-ical btn-trailer" href="https://www.youtube.com/watch?v=OskpsfvISCA" target="_blank" rel="noopener" title="Ouvrir la bande annonce sur YouTube">🎬 Bande annonce</a><a class="btn-ical btn-voir-plus" href="https://www.themoviedb.org/movie/614917" target="_blank" rel="noopener">🔗 Voir plus</a></div>
+  </div>
+</div>
+
+<div class="card film" id="seance-6" data-type="film">
+  <div class="card-poster" onclick="ouvrirDetail(6)" style="cursor:pointer"><img src="https://image.tmdb.org/t/p/w500/rJAML5icaPEkj8CU4wLHjpL4RWd.jpg" alt="Love Actually" class="affiche" loading="lazy" onclick="ouvrirDetail(6)"></div>
+  <div class="card-body">
+    <div class="card-header-row"><h3 class="card-titre" onclick="ouvrirDetail(6)" style="cursor:pointer">Love Actually</h3><div class="badges"><span class="badge badge-3d">🥽 3D</span> <span class="badge badge-type">🎬 Film</span> <span class="badge badge-avenir">À venir</span></div></div>
+    <div class="horaires"><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> <span class="heure">mercredi 25 février 2026  —  21:00</span></div><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="6" height="3" fill="#fff"/><rect width="1.5" height="3" fill="#D80621"/><rect x="4.5" width="1.5" height="3" fill="#D80621"/><path d="M3,0.35 L3.18,0.8 L3.65,0.72 L3.35,1.05 L3.5,1.05 L3,1.45 L2.5,1.05 L2.65,1.05 L2.35,0.72 L2.82,0.8 Z" fill="#D80621"/></svg></span> <span class="heure">mercredi 25 février 2026  —  15:00</span><span class="decalage"> (−6h)</span></div></div>
+    <div class="meta"><span class="salle">🏠 Prout</span><span class="diffuseur">📡 🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑</span><span class="note">⭐ 7.1/10</span></div><p class="resume">L'amour est partout, imprévisible, inexplicable, insurmontable. Il frappe quand il veut et souvent, ça fait pas mal de dégâts... Pour le nouveau Premier Ministre britannique, il va prendre la jolie forme d'une jeune collaboratrice. Pour l'écrivain au coeur brisé parti se réfugier dans le sud de la F…</p>
+    <div class="card-actions"><a class="btn-ical" href="seance_6.ics" download="seance_6.ics">📅 iCal</a><a class="btn-ical btn-gcal" href="https://calendar.google.com/calendar/r?cid=https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_6.ics" target="_blank" rel="noopener">🗓️ Google</a><a class="btn-ical btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_6.ics">🍎 Apple</a></div>
+  </div>
+</div>
+
+<div class="card spectacle" id="seance-1" data-type="spectacle">
+  <div class="card-poster" onclick="ouvrirDetail(1)" style="cursor:pointer"><div class="affiche-placeholder">🎬</div></div>
+  <div class="card-body">
+    <div class="card-header-row"><h3 class="card-titre" onclick="ouvrirDetail(1)" style="cursor:pointer">Roman Frayssinet  —  Roman Frayssinet</h3><div class="badges"><span class="badge badge-2d">📽️ 2D</span> <span class="badge badge-type">🎭 Spectacle</span> <span class="badge badge-avenir">À venir</span></div></div>
+    <div class="horaires"><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> <span class="heure">mercredi 25 février 2026  —  21:00</span></div><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="6" height="3" fill="#fff"/><rect width="1.5" height="3" fill="#D80621"/><rect x="4.5" width="1.5" height="3" fill="#D80621"/><path d="M3,0.35 L3.18,0.8 L3.65,0.72 L3.35,1.05 L3.5,1.05 L3,1.45 L2.5,1.05 L2.65,1.05 L2.35,0.72 L2.82,0.8 Z" fill="#D80621"/></svg></span> <span class="heure">mercredi 25 février 2026  —  15:00</span><span class="decalage"> (−6h)</span></div></div>
+    <div class="meta"><span class="salle">🏠 Salle de Beta Test</span><span class="diffuseur">📡 🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑</span></div><p class="resume">Artiste / Compagnie : Roman Frayssinet</p>
+    <div class="card-actions"><a class="btn-ical" href="seance_1.ics" download="seance_1.ics">📅 iCal</a><a class="btn-ical btn-gcal" href="https://calendar.google.com/calendar/r?cid=https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_1.ics" target="_blank" rel="noopener">🗓️ Google</a><a class="btn-ical btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_1.ics">🍎 Apple</a></div>
+  </div>
+</div>
+
+<div class="card film" id="seance-7" data-type="film">
+  <div class="card-poster" onclick="ouvrirDetail(7)" style="cursor:pointer"><img src="https://image.tmdb.org/t/p/w500/4M8fnQF821aVFBbhLdTQGf4j4W9.jpg" alt="Beetlejuice Beetlejuice" class="affiche" loading="lazy" onclick="ouvrirDetail(7)"></div>
+  <div class="card-body">
+    <div class="card-header-row"><h3 class="card-titre" onclick="ouvrirDetail(7)" style="cursor:pointer">Beetlejuice Beetlejuice</h3><div class="badges"><span class="badge badge-3d">🥽 3D</span> <span class="badge badge-type">🎬 Film</span> <span class="badge badge-avenir">À venir</span></div></div>
+    <div class="horaires"><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> <span class="heure">mercredi 25 février 2026  —  21:00</span></div><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="6" height="3" fill="#fff"/><rect width="1.5" height="3" fill="#D80621"/><rect x="4.5" width="1.5" height="3" fill="#D80621"/><path d="M3,0.35 L3.18,0.8 L3.65,0.72 L3.35,1.05 L3.5,1.05 L3,1.45 L2.5,1.05 L2.65,1.05 L2.35,0.72 L2.82,0.8 Z" fill="#D80621"/></svg></span> <span class="heure">mercredi 25 février 2026  —  15:00</span><span class="decalage"> (−6h)</span></div></div>
+    <div class="meta"><span class="salle">🏠 BigscreenFr  Beetlejuice Beetlejuice</span><span class="diffuseur">📡 nicolas.dumont</span><span class="note">⭐ 6.9/10</span></div><p class="resume">À la suite d'une tragédie familiale inattendue, trois générations de la famille Deetz rentrent dans leur maison à Winter River, toujours hantée par Beetlejuice. Là-bas, Lydia voit sa vie prendre un nouveau tournant lorsque Astrid, sa fille en plein âge rebelle, découvre la mystérieuse maquette de la…</p>
+    <div class="card-actions"><a class="btn-ical" href="seance_7.ics" download="seance_7.ics">📅 iCal</a><a class="btn-ical btn-gcal" href="https://calendar.google.com/calendar/r?cid=https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_7.ics" target="_blank" rel="noopener">🗓️ Google</a><a class="btn-ical btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_7.ics">🍎 Apple</a></div>
+  </div>
+</div>
+
+<div class="card anime" id="seance-18" data-type="anime">
+  <div class="card-poster" onclick="ouvrirDetail(18)" style="cursor:pointer"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx20-dE6UHbFFg1A5.jpg" alt="NARUTO — S01 Ép. 18" class="affiche" loading="lazy" onclick="ouvrirDetail(18)"></div>
+  <div class="card-body">
+    <div class="card-header-row"><h3 class="card-titre" onclick="ouvrirDetail(18)" style="cursor:pointer">NARUTO — S01 Ép. 18</h3><div class="badges"><span class="badge badge-3d">🥽 3D</span> <span class="badge badge-type">🍥 Animé</span> <span class="badge badge-avenir">À venir</span></div></div>
+    <div class="horaires"><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> <span class="heure">mercredi 25 février 2026  —  21:00</span></div><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="6" height="3" fill="#fff"/><rect width="1.5" height="3" fill="#D80621"/><rect x="4.5" width="1.5" height="3" fill="#D80621"/><path d="M3,0.35 L3.18,0.8 L3.65,0.72 L3.35,1.05 L3.5,1.05 L3,1.45 L2.5,1.05 L2.65,1.05 L2.35,0.72 L2.82,0.8 Z" fill="#D80621"/></svg></span> <span class="heure">mercredi 25 février 2026  —  15:00</span><span class="decalage"> (−6h)</span></div></div>
+    <div class="meta"><span class="serie-info">📺 S01 Ép. 18</span><span class="diffuseur">📡 🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑</span><span class="note">⭐ 8.0/10</span></div><p class="resume">Naruto Uzumaki, a hyperactive and knuckle-headed ninja, lives in Konohagakure, the Hidden Leaf village. Moments prior to his birth, a huge demon known as the Kyuubi, the Nine-tailed Fox, attacked Konohagakure and wreaked havoc. In order to put an end to the Kyuubi's rampage, the leader of the villag…</p>
+    <div class="card-actions"><a class="btn-ical" href="seance_18.ics" download="seance_18.ics">📅 iCal</a><a class="btn-ical btn-gcal" href="https://calendar.google.com/calendar/r?cid=https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_18.ics" target="_blank" rel="noopener">🗓️ Google</a><a class="btn-ical btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_18.ics">🍎 Apple</a><a class="btn-ical btn-trailer" href="https://www.youtube.com/watch?v=-G9BqkgZXRA" target="_blank" rel="noopener" title="Ouvrir la bande annonce sur YouTube">🎬 Bande annonce</a><a class="btn-ical btn-voir-plus" href="https://anilist.co/anime/20" target="_blank" rel="noopener">🔗 Voir plus</a></div>
+  </div>
+</div>
+
+<div class="card movie" id="seance-5" data-type="movie">
+  <div class="card-poster" onclick="ouvrirDetail(5)" style="cursor:pointer"><img src="https://image.tmdb.org/t/p/w500/vpsvHLkoeKUjceIMeNSqCp3xEyY.jpg" alt="Titanic" class="affiche" loading="lazy" onclick="ouvrirDetail(5)"></div>
+  <div class="card-body">
+    <div class="card-header-row"><h3 class="card-titre" onclick="ouvrirDetail(5)" style="cursor:pointer">Titanic</h3><div class="badges"><span class="badge badge-3d">🥽 3D</span> <span class="badge badge-type">🎬 Film</span> <span class="badge badge-avenir">À venir</span></div></div>
+    <div class="horaires"><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> <span class="heure">vendredi 27 février 2026  —  21:00</span></div><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="6" height="3" fill="#fff"/><rect width="1.5" height="3" fill="#D80621"/><rect x="4.5" width="1.5" height="3" fill="#D80621"/><path d="M3,0.35 L3.18,0.8 L3.65,0.72 L3.35,1.05 L3.5,1.05 L3,1.45 L2.5,1.05 L2.65,1.05 L2.35,0.72 L2.82,0.8 Z" fill="#D80621"/></svg></span> <span class="heure">vendredi 27 février 2026  —  15:00</span><span class="decalage"> (−6h)</span></div></div>
+    <div class="meta"><span class="salle">🏠 Iceberg</span><span class="diffuseur">📡 🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑</span><span class="note">⭐ 7.9/10</span></div><p class="resume">Southampton, 10 avril 1912. Le paquebot le plus grand et le plus moderne du monde, réputé pour son insubmersibilité, le « Titanic », appareille pour son premier voyage. Quatre jours plus tard, il heurte un iceberg. À son bord, un artiste pauvre et une grande bourgeoise tombent amoureux.</p>
+    <div class="card-actions"><a class="btn-ical" href="seance_5.ics" download="seance_5.ics">📅 iCal</a><a class="btn-ical btn-gcal" href="https://calendar.google.com/calendar/r?cid=https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_5.ics" target="_blank" rel="noopener">🗓️ Google</a><a class="btn-ical btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_5.ics">🍎 Apple</a></div>
+  </div>
+</div>
+
+<div class="card film" id="seance-25" data-type="film">
+  <div class="card-poster" onclick="ouvrirDetail(25)" style="cursor:pointer"><img src="https://image.tmdb.org/t/p/w500/rJU6uv4ADDV0aYdiy7wyIf2nCjS.jpg" alt="L'Exorciste" class="affiche" loading="lazy" onclick="ouvrirDetail(25)"></div>
+  <div class="card-body">
+    <div class="card-header-row"><h3 class="card-titre" onclick="ouvrirDetail(25)" style="cursor:pointer">L'Exorciste</h3><div class="badges"><span class="badge badge-2d">📽️ 2D</span> <span class="badge badge-type">🎬 Film</span> <span class="badge badge-avenir">À venir</span></div></div>
+    <div class="horaires"><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> <span class="heure">vendredi 27 février 2026  —  21:00</span></div><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="6" height="3" fill="#fff"/><rect width="1.5" height="3" fill="#D80621"/><rect x="4.5" width="1.5" height="3" fill="#D80621"/><path d="M3,0.35 L3.18,0.8 L3.65,0.72 L3.35,1.05 L3.5,1.05 L3,1.45 L2.5,1.05 L2.65,1.05 L2.35,0.72 L2.82,0.8 Z" fill="#D80621"/></svg></span> <span class="heure">vendredi 27 février 2026  —  15:00</span><span class="decalage"> (−6h)</span></div></div>
+    <div class="meta"><span class="salle">🏠 [NSFW]</span><span class="diffuseur">📡 🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑</span><span class="note">⭐ 7.7/10</span><span class="duree">⏱️ 2h13</span><span class="date-sortie">📅 1973</span><span class="classification">🔞 -18 ans</span></div><p class="resume">Regan, une adolescente, présente depuis quelque temps d’étranges symptômes. Après avoir épuisé les solutions médicales, la mère de Regan consulte un prêtre-psychiatre qui est rapidement convaincu que Regan est possédée et que seul un exorcisme pourra la "guérir".</p>
+    <div class="card-actions"><a class="btn-ical" href="seance_25.ics" download="seance_25.ics">📅 iCal</a><a class="btn-ical btn-gcal" href="https://calendar.google.com/calendar/r?cid=https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_25.ics" target="_blank" rel="noopener">🗓️ Google</a><a class="btn-ical btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_25.ics">🍎 Apple</a><a class="btn-ical btn-trailer" href="https://www.youtube.com/watch?v=kuowPVqvnRk" target="_blank" rel="noopener" title="Ouvrir la bande annonce sur YouTube">🎬 Bande annonce</a><a class="btn-ical btn-voir-plus" href="https://www.themoviedb.org/movie/9552" target="_blank" rel="noopener">🔗 Voir plus</a></div>
+  </div>
+</div>
+
+<div class="card serie" id="seance-38" data-type="serie">
+  <div class="card-poster" onclick="ouvrirDetail(38)" style="cursor:pointer"><img src="https://image.tmdb.org/t/p/w500/m4p0F6qg9SbP1DctNk0jPTWBbuA.jpg" alt="Ugly Betty — S01 Ép. 1" class="affiche" loading="lazy" onclick="ouvrirDetail(38)"></div>
+  <div class="card-body">
+    <div class="card-header-row"><h3 class="card-titre" onclick="ouvrirDetail(38)" style="cursor:pointer">Ugly Betty — S01 Ép. 1</h3><div class="badges"><span class="badge badge-2d">📽️ 2D</span> <span class="badge badge-type">🎬 Film</span> <span class="badge badge-avenir">À venir</span></div></div>
+    <div class="horaires"><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> <span class="heure">dimanche 1 mars 2026  —  21:00</span></div><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="6" height="3" fill="#fff"/><rect width="1.5" height="3" fill="#D80621"/><rect x="4.5" width="1.5" height="3" fill="#D80621"/><path d="M3,0.35 L3.18,0.8 L3.65,0.72 L3.35,1.05 L3.5,1.05 L3,1.45 L2.5,1.05 L2.65,1.05 L2.35,0.72 L2.82,0.8 Z" fill="#D80621"/></svg></span> <span class="heure">dimanche 1 mars 2026  —  15:00</span><span class="decalage"> (−6h)</span></div></div>
+    <div class="meta"><span class="serie-info">📺 S01 Ép. 1</span><span class="diffuseur">📡 🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑</span><span class="note">⭐ 6.4/10</span><span class="duree">⏱️ 43 min</span><span class="date-sortie">📅 2006</span><span class="classification">🔴 -15 ans</span></div><p class="resume">Betty Suarez n'est pas spécialement belle, mais elle est douce, intelligente et travaille dur. Dans un monde régi par les apparences, ses qualités sont invisibles. Pourtant, le président de Meade Publications l'engage pour devenir l'assistante de son fils, Daniel, récemment promu à la tête d'un pres…</p>
+    <div class="card-actions"><a class="btn-ical" href="seance_38.ics" download="seance_38.ics">📅 iCal</a><a class="btn-ical btn-gcal" href="https://calendar.google.com/calendar/r?cid=https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_38.ics" target="_blank" rel="noopener">🗓️ Google</a><a class="btn-ical btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_38.ics">🍎 Apple</a><a class="btn-ical btn-trailer" href="https://www.youtube.com/watch?v=0IFgj1A6uMU" target="_blank" rel="noopener" title="Ouvrir la bande annonce sur YouTube">🎬 Bande annonce</a><a class="btn-ical btn-voir-plus" href="https://www.themoviedb.org/tv/4626" target="_blank" rel="noopener">🔗 Voir plus</a></div>
+  </div>
+</div>
+
+<div class="card concert" id="seance-32" data-type="concert">
+  <div class="card-poster" onclick="ouvrirDetail(32)" style="cursor:pointer"><div class="affiche-placeholder">🎬</div></div>
+  <div class="card-body">
+    <div class="card-header-row"><h3 class="card-titre" onclick="ouvrirDetail(32)" style="cursor:pointer">COldplay</h3><div class="badges"><span class="badge badge-2d">📽️ 2D</span> <span class="badge badge-type">🎤 Concert</span> <span class="badge badge-avenir">À venir</span></div></div>
+    <div class="horaires"><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> <span class="heure">lundi 2 mars 2026  —  21:00</span></div><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="6" height="3" fill="#fff"/><rect width="1.5" height="3" fill="#D80621"/><rect x="4.5" width="1.5" height="3" fill="#D80621"/><path d="M3,0.35 L3.18,0.8 L3.65,0.72 L3.35,1.05 L3.5,1.05 L3,1.45 L2.5,1.05 L2.65,1.05 L2.35,0.72 L2.82,0.8 Z" fill="#D80621"/></svg></span> <span class="heure">lundi 2 mars 2026  —  15:00</span><span class="decalage"> (−6h)</span></div></div>
+    <div class="meta"><span class="diffuseur">📡 🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑</span></div>
+    <div class="card-actions"><a class="btn-ical" href="seance_32.ics" download="seance_32.ics">📅 iCal</a><a class="btn-ical btn-gcal" href="https://calendar.google.com/calendar/r?cid=https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_32.ics" target="_blank" rel="noopener">🗓️ Google</a><a class="btn-ical btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_32.ics">🍎 Apple</a></div>
+  </div>
+</div>
+
+<div class="card film" id="seance-39" data-type="film">
+  <div class="card-poster" onclick="ouvrirDetail(39)" style="cursor:pointer"><img src="https://image.tmdb.org/t/p/w500/1pnigkWWy8W032o9TKDneBa3eVK.jpg" alt="Interstellar" class="affiche" loading="lazy" onclick="ouvrirDetail(39)"></div>
+  <div class="card-body">
+    <div class="card-header-row"><h3 class="card-titre" onclick="ouvrirDetail(39)" style="cursor:pointer">Interstellar</h3><div class="badges"><span class="badge badge-3d">🥽 3D</span> <span class="badge badge-type">🎬 Film</span> <span class="badge badge-avenir">À venir</span></div></div>
+    <div class="horaires"><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> <span class="heure">mardi 3 mars 2026  —  21:00</span></div><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="6" height="3" fill="#fff"/><rect width="1.5" height="3" fill="#D80621"/><rect x="4.5" width="1.5" height="3" fill="#D80621"/><path d="M3,0.35 L3.18,0.8 L3.65,0.72 L3.35,1.05 L3.5,1.05 L3,1.45 L2.5,1.05 L2.65,1.05 L2.35,0.72 L2.82,0.8 Z" fill="#D80621"/></svg></span> <span class="heure">mardi 3 mars 2026  —  15:00</span><span class="decalage"> (−6h)</span></div></div>
+    <div class="meta"><span class="diffuseur">📡 🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑</span><span class="note">⭐ 8.5/10</span><span class="duree">⏱️ 2h49</span><span class="date-sortie">📅 2014</span><span class="classification">✅ Tous publics</span></div><p class="resume">Dans un futur proche, face à une Terre exsangue, un groupe d’explorateurs utilise un vaisseau interstellaire pour franchir un trou de ver permettant de parcourir des distances jusque‐là infranchissables. Leur but : trouver un nouveau foyer pour l’humanité.</p>
+    <div class="card-actions"><a class="btn-ical" href="seance_39.ics" download="seance_39.ics">📅 iCal</a><a class="btn-ical btn-gcal" href="https://calendar.google.com/calendar/r?cid=https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_39.ics" target="_blank" rel="noopener">🗓️ Google</a><a class="btn-ical btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_39.ics">🍎 Apple</a><a class="btn-ical btn-trailer" href="https://www.youtube.com/watch?v=kTGDxqUowq4" target="_blank" rel="noopener" title="Ouvrir la bande annonce sur YouTube">🎬 Bande annonce</a><a class="btn-ical btn-voir-plus" href="https://www.themoviedb.org/movie/157336" target="_blank" rel="noopener">🔗 Voir plus</a></div>
+  </div>
+</div>
+
+<div class="card serie" id="seance-34" data-type="serie">
+  <div class="card-poster" onclick="ouvrirDetail(34)" style="cursor:pointer"><img src="https://image.tmdb.org/t/p/w500/t1s0O5Ysy9YhLFLiKgimhFQZBiu.jpg" alt="Fallout — S02 Ép. 1 3 5" class="affiche" loading="lazy" onclick="ouvrirDetail(34)"></div>
+  <div class="card-body">
+    <div class="card-header-row"><h3 class="card-titre" onclick="ouvrirDetail(34)" style="cursor:pointer">Fallout — S02 Ép. 1 3 5</h3><div class="badges"><span class="badge badge-2d">📽️ 2D</span> <span class="badge badge-type">🎬 Film</span> <span class="badge badge-avenir">À venir</span></div></div>
+    <div class="horaires"><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> <span class="heure">mercredi 4 mars 2026  —  21:00</span></div><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="6" height="3" fill="#fff"/><rect width="1.5" height="3" fill="#D80621"/><rect x="4.5" width="1.5" height="3" fill="#D80621"/><path d="M3,0.35 L3.18,0.8 L3.65,0.72 L3.35,1.05 L3.5,1.05 L3,1.45 L2.5,1.05 L2.65,1.05 L2.35,0.72 L2.82,0.8 Z" fill="#D80621"/></svg></span> <span class="heure">mercredi 4 mars 2026  —  15:00</span><span class="decalage"> (−6h)</span></div></div>
+    <div class="meta"><span class="serie-info">📺 S02 Ép. 1 3 5</span><span class="diffuseur">📡 🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑</span><span class="note">⭐ 8.1/10</span><span class="date-sortie">📅 2024</span><span class="classification">🔴 -15 ans</span></div><p class="resume">Qu’en dites-vous, Mme Maclean ?</p>
+    <div class="card-actions"><a class="btn-ical" href="seance_34.ics" download="seance_34.ics">📅 iCal</a><a class="btn-ical btn-gcal" href="https://calendar.google.com/calendar/r?cid=https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_34.ics" target="_blank" rel="noopener">🗓️ Google</a><a class="btn-ical btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_34.ics">🍎 Apple</a><a class="btn-ical btn-trailer" href="https://www.youtube.com/watch?v=dkY47XifLmo" target="_blank" rel="noopener" title="Ouvrir la bande annonce sur YouTube">🎬 Bande annonce</a><a class="btn-ical btn-voir-plus" href="https://www.themoviedb.org/tv/106379" target="_blank" rel="noopener">🔗 Voir plus</a></div>
+  </div>
+</div>
+
+<div class="card concert" id="seance-29" data-type="concert">
+  <div class="card-poster" onclick="ouvrirDetail(29)" style="cursor:pointer"><div class="affiche-placeholder">🎬</div></div>
+  <div class="card-body">
+    <div class="card-header-row"><h3 class="card-titre" onclick="ouvrirDetail(29)" style="cursor:pointer">francis lalane</h3><div class="badges"><span class="badge badge-2d">📽️ 2D</span> <span class="badge badge-type">🎤 Concert</span> <span class="badge badge-avenir">À venir</span></div></div>
+    <div class="horaires"><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> <span class="heure">vendredi 6 mars 2026  —  21:00</span></div><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="6" height="3" fill="#fff"/><rect width="1.5" height="3" fill="#D80621"/><rect x="4.5" width="1.5" height="3" fill="#D80621"/><path d="M3,0.35 L3.18,0.8 L3.65,0.72 L3.35,1.05 L3.5,1.05 L3,1.45 L2.5,1.05 L2.65,1.05 L2.35,0.72 L2.82,0.8 Z" fill="#D80621"/></svg></span> <span class="heure">vendredi 6 mars 2026  —  15:00</span><span class="decalage"> (−6h)</span></div></div>
+    <div class="meta"><span class="diffuseur">📡 🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑</span></div>
+    <div class="card-actions"><a class="btn-ical" href="seance_29.ics" download="seance_29.ics">📅 iCal</a><a class="btn-ical btn-gcal" href="https://calendar.google.com/calendar/r?cid=https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_29.ics" target="_blank" rel="noopener">🗓️ Google</a><a class="btn-ical btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_29.ics">🍎 Apple</a></div>
+  </div>
+</div>
+
+<div class="card concert" id="seance-33" data-type="concert">
+  <div class="card-poster" onclick="ouvrirDetail(33)" style="cursor:pointer"><div class="affiche-placeholder">🎬</div></div>
+  <div class="card-body">
+    <div class="card-header-row"><h3 class="card-titre" onclick="ouvrirDetail(33)" style="cursor:pointer">Jean michel jarre</h3><div class="badges"><span class="badge badge-3d">🥽 3D</span> <span class="badge badge-type">🎤 Concert</span> <span class="badge badge-avenir">À venir</span></div></div>
+    <div class="horaires"><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> <span class="heure">vendredi 6 mars 2026  —  21:00</span></div><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="6" height="3" fill="#fff"/><rect width="1.5" height="3" fill="#D80621"/><rect x="4.5" width="1.5" height="3" fill="#D80621"/><path d="M3,0.35 L3.18,0.8 L3.65,0.72 L3.35,1.05 L3.5,1.05 L3,1.45 L2.5,1.05 L2.65,1.05 L2.35,0.72 L2.82,0.8 Z" fill="#D80621"/></svg></span> <span class="heure">vendredi 6 mars 2026  —  15:00</span><span class="decalage"> (−6h)</span></div></div>
+    <div class="meta"><span class="diffuseur">📡 🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑</span></div>
+    <div class="card-actions"><a class="btn-ical" href="seance_33.ics" download="seance_33.ics">📅 iCal</a><a class="btn-ical btn-gcal" href="https://calendar.google.com/calendar/r?cid=https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_33.ics" target="_blank" rel="noopener">🗓️ Google</a><a class="btn-ical btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_33.ics">🍎 Apple</a></div>
+  </div>
+</div>
+
+<div class="card film" id="seance-37" data-type="film">
+  <div class="card-poster" onclick="ouvrirDetail(37)" style="cursor:pointer"><img src="https://image.tmdb.org/t/p/w500/1pnigkWWy8W032o9TKDneBa3eVK.jpg" alt="Interstellar" class="affiche" loading="lazy" onclick="ouvrirDetail(37)"></div>
+  <div class="card-body">
+    <div class="card-header-row"><h3 class="card-titre" onclick="ouvrirDetail(37)" style="cursor:pointer">Interstellar</h3><div class="badges"><span class="badge badge-2d">📽️ 2D</span> <span class="badge badge-type">🎬 Film</span> <span class="badge badge-avenir">À venir</span></div></div>
+    <div class="horaires"><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> <span class="heure">vendredi 6 mars 2026  —  21:00</span></div><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="6" height="3" fill="#fff"/><rect width="1.5" height="3" fill="#D80621"/><rect x="4.5" width="1.5" height="3" fill="#D80621"/><path d="M3,0.35 L3.18,0.8 L3.65,0.72 L3.35,1.05 L3.5,1.05 L3,1.45 L2.5,1.05 L2.65,1.05 L2.35,0.72 L2.82,0.8 Z" fill="#D80621"/></svg></span> <span class="heure">vendredi 6 mars 2026  —  15:00</span><span class="decalage"> (−6h)</span></div></div>
+    <div class="meta"><span class="diffuseur">📡 🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑</span><span class="note">⭐ 8.5/10</span><span class="duree">⏱️ 2h49</span><span class="date-sortie">📅 2014</span><span class="classification">✅ Tous publics</span></div><p class="resume">Dans un futur proche, face à une Terre exsangue, un groupe d’explorateurs utilise un vaisseau interstellaire pour franchir un trou de ver permettant de parcourir des distances jusque‐là infranchissables. Leur but : trouver un nouveau foyer pour l’humanité.</p>
+    <div class="card-actions"><a class="btn-ical" href="seance_37.ics" download="seance_37.ics">📅 iCal</a><a class="btn-ical btn-gcal" href="https://calendar.google.com/calendar/r?cid=https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_37.ics" target="_blank" rel="noopener">🗓️ Google</a><a class="btn-ical btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_37.ics">🍎 Apple</a><a class="btn-ical btn-trailer" href="https://www.youtube.com/watch?v=kTGDxqUowq4" target="_blank" rel="noopener" title="Ouvrir la bande annonce sur YouTube">🎬 Bande annonce</a><a class="btn-ical btn-voir-plus" href="https://www.themoviedb.org/movie/157336" target="_blank" rel="noopener">🔗 Voir plus</a></div>
+  </div>
+</div>
+
+<div class="card tv" id="seance-4" data-type="tv">
+  <div class="card-poster" onclick="ouvrirDetail(4)" style="cursor:pointer"><img src="https://image.tmdb.org/t/p/w500/ohr8BDFA47MYIyGGENwjPkwihmo.jpg" alt="One Piece — S172 Ép. 1-36780" class="affiche" loading="lazy" onclick="ouvrirDetail(4)"></div>
+  <div class="card-body">
+    <div class="card-header-row"><h3 class="card-titre" onclick="ouvrirDetail(4)" style="cursor:pointer">One Piece — S172 Ép. 1-36780</h3><div class="badges"><span class="badge badge-3d">🥽 3D</span> <span class="badge badge-type">📺 Série</span> <span class="badge badge-avenir">À venir</span></div></div>
+    <div class="horaires"><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> <span class="heure">samedi 21 mars 2026  —  21:00</span></div><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="6" height="3" fill="#fff"/><rect width="1.5" height="3" fill="#D80621"/><rect x="4.5" width="1.5" height="3" fill="#D80621"/><path d="M3,0.35 L3.18,0.8 L3.65,0.72 L3.35,1.05 L3.5,1.05 L3,1.45 L2.5,1.05 L2.65,1.05 L2.35,0.72 L2.82,0.8 Z" fill="#D80621"/></svg></span> <span class="heure">samedi 21 mars 2026  —  16:00</span><span class="decalage"> (−5h)</span></div></div>
+    <div class="meta"><span class="salle">🏠 Test</span><span class="serie-info">📺 S172 Ép. 1-36780</span><span class="diffuseur">📡 Statik</span><span class="note">⭐ 8.1/10</span></div><p class="resume">Une aventure en haute mer légendaire et unique en son genre. Monkey D. Luffy est un jeune aventurier qui a toujours rêvé d'une vie de liberté. Quittant son village, il se lance dans un périlleux voyage à la recherche d'un trésor mythique, le One Piece, afin de devenir le roi des pirates ! Mais pour …</p>
+    <div class="card-actions"><a class="btn-ical" href="seance_4.ics" download="seance_4.ics">📅 iCal</a><a class="btn-ical btn-gcal" href="https://calendar.google.com/calendar/r?cid=https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_4.ics" target="_blank" rel="noopener">🗓️ Google</a><a class="btn-ical btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_4.ics">🍎 Apple</a></div>
+  </div>
+</div>
+
+<div class="card film" id="seance-26" data-type="film">
+  <div class="card-poster" onclick="ouvrirDetail(26)" style="cursor:pointer"><img src="https://image.tmdb.org/t/p/w500/uJp66jFj6a0eUu7Cf20xFwJd4l3.jpg" alt="La Méthode Williams" class="affiche" loading="lazy" onclick="ouvrirDetail(26)"></div>
+  <div class="card-body">
+    <div class="card-header-row"><h3 class="card-titre" onclick="ouvrirDetail(26)" style="cursor:pointer">La Méthode Williams</h3><div class="badges"><span class="badge badge-3d">🥽 3D</span> <span class="badge badge-type">🎬 Film</span> <span class="badge badge-avenir">À venir</span></div></div>
+    <div class="horaires"><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> <span class="heure">samedi 21 mars 2026  —  21:00</span></div><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="6" height="3" fill="#fff"/><rect width="1.5" height="3" fill="#D80621"/><rect x="4.5" width="1.5" height="3" fill="#D80621"/><path d="M3,0.35 L3.18,0.8 L3.65,0.72 L3.35,1.05 L3.5,1.05 L3,1.45 L2.5,1.05 L2.65,1.05 L2.35,0.72 L2.82,0.8 Z" fill="#D80621"/></svg></span> <span class="heure">samedi 21 mars 2026  —  16:00</span><span class="decalage"> (−5h)</span></div></div>
+    <div class="meta"><span class="salle">🏠 TEST</span><span class="diffuseur">📡 🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑</span><span class="note">⭐ 7.6/10</span><span class="duree">⏱️ 2h24</span><span class="date-sortie">📅 2021</span><span class="classification">✅ Tous publics</span></div><p class="resume">Focus sur la personnalité de l'entraîneur de tennis Richard Williams, père des joueuses mondiales Venus et Serena. Il n'avait aucune expérience dans le sport mais lorsque ses filles ont eu quatre ans, il a élaboré un plan de 78 pages décrivant l'entraînement des futures championnes. Les sœurs Willia…</p>
+    <div class="card-actions"><a class="btn-ical" href="seance_26.ics" download="seance_26.ics">📅 iCal</a><a class="btn-ical btn-gcal" href="https://calendar.google.com/calendar/r?cid=https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_26.ics" target="_blank" rel="noopener">🗓️ Google</a><a class="btn-ical btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_26.ics">🍎 Apple</a><a class="btn-ical btn-trailer" href="https://www.youtube.com/watch?v=OskpsfvISCA" target="_blank" rel="noopener" title="Ouvrir la bande annonce sur YouTube">🎬 Bande annonce</a><a class="btn-ical btn-voir-plus" href="https://www.themoviedb.org/movie/614917" target="_blank" rel="noopener">🔗 Voir plus</a></div>
+  </div>
+</div>
+
+<div class="card anime" id="seance-35" data-type="anime">
+  <div class="card-poster" onclick="ouvrirDetail(35)" style="cursor:pointer"><img src="https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx20-dE6UHbFFg1A5.jpg" alt="NARUTO — S03 Ép. 3" class="affiche" loading="lazy" onclick="ouvrirDetail(35)"></div>
+  <div class="card-body">
+    <div class="card-header-row"><h3 class="card-titre" onclick="ouvrirDetail(35)" style="cursor:pointer">NARUTO — S03 Ép. 3</h3><div class="badges"><span class="badge badge-2d">📽️ 2D</span> <span class="badge badge-type">🍥 Animé</span> <span class="badge badge-avenir">À venir</span></div></div>
+    <div class="horaires"><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> <span class="heure">lundi 23 mars 2026  —  21:00</span></div><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="6" height="3" fill="#fff"/><rect width="1.5" height="3" fill="#D80621"/><rect x="4.5" width="1.5" height="3" fill="#D80621"/><path d="M3,0.35 L3.18,0.8 L3.65,0.72 L3.35,1.05 L3.5,1.05 L3,1.45 L2.5,1.05 L2.65,1.05 L2.35,0.72 L2.82,0.8 Z" fill="#D80621"/></svg></span> <span class="heure">lundi 23 mars 2026  —  16:00</span><span class="decalage"> (−5h)</span></div></div>
+    <div class="meta"><span class="serie-info">📺 S03 Ép. 3</span><span class="diffuseur">📡 🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑</span><span class="note">⭐ 8.0/10</span></div><p class="resume">Naruto Uzumaki, a hyperactive and knuckle-headed ninja, lives in Konohagakure, the Hidden Leaf village. Moments prior to his birth, a huge demon known as the Kyuubi, the Nine-tailed Fox, attacked Konohagakure and wreaked havoc. In order to put an end to the Kyuubi's rampage, the leader of the villag…</p>
+    <div class="card-actions"><a class="btn-ical" href="seance_35.ics" download="seance_35.ics">📅 iCal</a><a class="btn-ical btn-gcal" href="https://calendar.google.com/calendar/r?cid=https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_35.ics" target="_blank" rel="noopener">🗓️ Google</a><a class="btn-ical btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_35.ics">🍎 Apple</a><a class="btn-ical btn-trailer" href="https://www.youtube.com/watch?v=-G9BqkgZXRA" target="_blank" rel="noopener" title="Ouvrir la bande annonce sur YouTube">🎬 Bande annonce</a><a class="btn-ical btn-voir-plus" href="https://anilist.co/anime/20" target="_blank" rel="noopener">🔗 Voir plus</a></div>
+  </div>
+</div>
+
+<div class="card concert" id="seance-20" data-type="concert">
+  <div class="card-poster" onclick="ouvrirDetail(20)" style="cursor:pointer"><div class="affiche-placeholder">🎬</div></div>
+  <div class="card-body">
+    <div class="card-header-row"><h3 class="card-titre" onclick="ouvrirDetail(20)" style="cursor:pointer">Voulzy à l'église de Boulloire  —  Laurent</h3><div class="badges"><span class="badge badge-2d">📽️ 2D</span> <span class="badge badge-type">🎤 Concert</span> <span class="badge badge-avenir">À venir</span></div></div>
+    <div class="horaires"><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="1" height="2" fill="#002395"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#ED2939"/></svg></span> <span class="heure">samedi 28 mars 2026  —  23:59</span></div><div class="horaire-bloc"><span class="flag"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 3" width="24" height="16" style="border-radius:3px;vertical-align:middle"><rect width="6" height="3" fill="#fff"/><rect width="1.5" height="3" fill="#D80621"/><rect x="4.5" width="1.5" height="3" fill="#D80621"/><path d="M3,0.35 L3.18,0.8 L3.65,0.72 L3.35,1.05 L3.5,1.05 L3,1.45 L2.5,1.05 L2.65,1.05 L2.35,0.72 L2.82,0.8 Z" fill="#D80621"/></svg></span> <span class="heure">samedi 28 mars 2026  —  18:59</span><span class="decalage"> (−5h)</span></div></div>
+    <div class="meta"><span class="salle">🏠 beanscream - Secoto - Que du bonheur</span><span class="diffuseur">📡 (◉‿◉) S҉E҉C҉O҉T҉O҉ (◉‿◉)</span></div><p class="resume">Artiste / Compagnie : Laurent</p>
+    <div class="card-actions"><a class="btn-ical" href="seance_20.ics" download="seance_20.ics">📅 iCal</a><a class="btn-ical btn-gcal" href="https://calendar.google.com/calendar/r?cid=https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_20.ics" target="_blank" rel="noopener">🗓️ Google</a><a class="btn-ical btn-webcal" href="webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_20.ics">🍎 Apple</a></div>
+  </div>
+</div></div>
+  </section>
+  <section id="historique">
+    <h2>📼  Historique</h2>
+    <button class="histo-toggle" id="histo-toggle" onclick="toggleHistorique()">
+      <span class="histo-toggle-label">
+        📼 Consulter l'historique des diffusions
+        <span class="histo-toggle-count">18 diffusion(s) • 16 titre(s) unique(s)</span>
+      </span>
+      <span class="histo-toggle-arrow">▶</span>
+    </button>
+    <div class="histo-panel" id="histo-panel">
+      <input class="histo-search" id="histo-search" type="text" placeholder="🔍  Rechercher un titre…" oninput="filtrerHistorique()">
+      <div class="histo-grid" id="histo-grid"></div>
+    </div>
+  </section>
+  <section id="diffuseurs">
+    <h2>🎙️  Notre équipe de diffuseurs</h2>
+    <div class="diffuseurs-grid"><div class="diffuseur-card"><div class="diff-avatar">📡</div><div class="diff-info"><div class="diff-nom">(◉‿◉) S҉E҉C҉O҉T҉O҉ (◉‿◉)</div><div class="diff-stats">2 diffusions</div></div></div><div class="diffuseur-card"><div class="diff-avatar">📡</div><div class="diff-info"><div class="diff-nom">FragThor</div><div class="diff-stats">2 diffusions</div></div></div><div class="diffuseur-card"><div class="diff-avatar">📡</div><div class="diff-info"><div class="diff-nom">nicolas.dumont</div><div class="diff-stats">1 diffusion</div></div></div><div class="diffuseur-card"><div class="diff-avatar">📡</div><div class="diff-info"><div class="diff-nom">Oagern</div><div class="diff-stats">1 diffusion</div></div></div><div class="diffuseur-card"><div class="diff-avatar">📡</div><div class="diff-info"><div class="diff-nom">Statik</div><div class="diff-stats">2 diffusions</div></div></div><div class="diffuseur-card"><div class="diff-avatar">📡</div><div class="diff-info"><div class="diff-nom">Zaz</div><div class="diff-stats">1 diffusion</div></div></div><div class="diffuseur-card"><div class="diff-avatar">📡</div><div class="diff-info"><div class="diff-nom">🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑</div><div class="diff-stats">27 diffusions</div></div></div></div>
+  </section>
+  <section id="graphiques">
+    <h2>📊  Statistiques & Graphiques</h2>
+    <div class="graphs-grid">
+      <div class="graph-card full"><h3>📆 Diffusions par mois</h3><canvas id="chartMois" height="80"></canvas></div>
+      <div class="graph-card"><h3>📂 Types de contenu</h3><canvas id="chartTypes"></canvas></div>
+      <div class="graph-card"><h3>🥽 Format 2D / 3D</h3><canvas id="chartFormat"></canvas></div>
+      <div class="graph-card full"><h3>⏱️ Temps de diffusion cumulé</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:2rem;padding:.5rem 0">
+          <div class="stat"><div class="stat-num">10h24</div><div class="stat-label">Aujourd'hui</div></div>
+          <div class="stat"><div class="stat-num">2j 1h</div><div class="stat-label">Cette semaine</div></div>
+          <div class="stat"><div class="stat-num">2 jours</div><div class="stat-label">Ce mois</div></div>
+          <div class="stat"><div class="stat-num">3j 1h</div><div class="stat-label">Cette année</div></div>
+          <div class="stat"><div class="stat-num">3j 1h</div><div class="stat-label">Total cumulé</div></div>
+        </div>
+        <p style="font-size:.78rem;color:var(--text2);margin-top:.5rem;">⚠️ Durée réelle si disponible via TMDB, sinon estimation 2h/séance.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><p>Dreadlocktopus_Bot V5 Calendrier • Site généré automatiquement par le bot Discord • mercredi 25 février 2026  —  09:05</p></footer>
+
+<div class="modal-overlay" id="modal-overlay" onclick="fermerDetail(event)">
+  <div class="modal"><button class="modal-close" onclick="fermerDetail(null,true)">✕</button><div id="modal-inner"></div></div>
+</div>
+<div class="histo-modal-overlay" id="histo-modal-overlay" onclick="fermerHistoModal(event)">
+  <div class="histo-modal"><button class="histo-modal-close" onclick="fermerHistoModal(null,true)">✕</button><div id="histo-modal-inner"></div></div>
+</div>
+
+<!-- Données JSON séances — type application/json = jamais interprété comme JS -->
+<script type="application/json" id="seances-data">[{"id": 20, "titre": "Voulzy à l'église de Boulloire  —  Laurent", "fmt": "2D", "type": "concert", "heureFR": "23:59", "heureQC": "18:59", "jour": 28, "mois": 3, "annee": 2026, "ancre": "seance-20", "affiche": "", "resume": "Artiste / Compagnie : Laurent", "note": null, "salle": "beanscream - Secoto - Que du bonheur", "diffuseur": "(◉‿◉) S҉E҉C҉O҉T҉O҉ (◉‿◉)", "saison": null, "episodes": "", "passee": false, "utcEpoch": 1774738740000, "trailerUrl": "", "externalUrl": "", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 35, "titre": "NARUTO — S03 Ép. 3", "fmt": "2D", "type": "anime", "heureFR": "21:00", "heureQC": "16:00", "jour": 23, "mois": 3, "annee": 2026, "ancre": "seance-35", "affiche": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx20-dE6UHbFFg1A5.jpg", "resume": "Naruto Uzumaki, a hyperactive and knuckle-headed ninja, lives in Konohagakure, the Hidden Leaf village. Moments prior to his birth, a huge demon known as the Kyuubi, the Nine-tailed Fox, attacked Konohagakure and wreaked havoc. In order to put an end to the Kyuubi's rampage, the leader of the village, the 4th Hokage, sacrificed his life and sealed the monstrous beast inside the newborn Naruto.   \nShunned because of the presence of the Kyuubi inside him, Naruto struggles to find his place in the ", "note": 8.0, "salle": "", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": 3, "episodes": "3", "passee": false, "utcEpoch": 1774296000000, "trailerUrl": "https://www.youtube.com/watch?v=-G9BqkgZXRA", "externalUrl": "https://anilist.co/anime/20", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 4, "titre": "One Piece — S172 Ép. 1-36780", "fmt": "3D", "type": "tv", "heureFR": "21:00", "heureQC": "16:00", "jour": 21, "mois": 3, "annee": 2026, "ancre": "seance-4", "affiche": "https://image.tmdb.org/t/p/w500/ohr8BDFA47MYIyGGENwjPkwihmo.jpg", "resume": "Une aventure en haute mer légendaire et unique en son genre. Monkey D. Luffy est un jeune aventurier qui a toujours rêvé d'une vie de liberté. Quittant son village, il se lance dans un périlleux voyage à la recherche d'un trésor mythique, le One Piece, afin de devenir le roi des pirates ! Mais pour trouver ce fameux butin, Luffy devra assembler l'équipage de ses rêves puis dénicher un navire, quadriller les océans, se défaire de la Marine à ses trousses et se montrer meilleur stratège que les dangereux rivaux qui l'attendent à chaque étape.", "note": 8.1, "salle": "Test", "diffuseur": "Statik", "saison": 172, "episodes": "1-36780", "passee": false, "utcEpoch": 1774123200000, "trailerUrl": "", "externalUrl": "", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 26, "titre": "La Méthode Williams", "fmt": "3D", "type": "film", "heureFR": "21:00", "heureQC": "16:00", "jour": 21, "mois": 3, "annee": 2026, "ancre": "seance-26", "affiche": "https://image.tmdb.org/t/p/w500/uJp66jFj6a0eUu7Cf20xFwJd4l3.jpg", "resume": "Focus sur la personnalité de l'entraîneur de tennis Richard Williams, père des joueuses mondiales Venus et Serena. Il n'avait aucune expérience dans le sport mais lorsque ses filles ont eu quatre ans, il a élaboré un plan de 78 pages décrivant l'entraînement des futures championnes. Les sœurs Williams sont devenues deux des plus grandes joueuses de l'histoire du tennis. Serena est sans conteste la meilleure tenniswoman de tous les temps, avec 23 victoires en tournois du Grand Chelem. Venus Williams a remporté sept titres en Grand Chelem.", "note": 7.6, "salle": "TEST", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": false, "utcEpoch": 1774123200000, "trailerUrl": "https://www.youtube.com/watch?v=OskpsfvISCA", "externalUrl": "https://www.themoviedb.org/movie/614917", "dureeMin": 144, "dateSortie": "2021-11-18", "classificationAge": "TP"}, {"id": 29, "titre": "francis lalane", "fmt": "2D", "type": "concert", "heureFR": "21:00", "heureQC": "15:00", "jour": 6, "mois": 3, "annee": 2026, "ancre": "seance-29", "affiche": "", "resume": "", "note": null, "salle": "", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": false, "utcEpoch": 1772827200000, "trailerUrl": "", "externalUrl": "", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 33, "titre": "Jean michel jarre", "fmt": "3D", "type": "concert", "heureFR": "21:00", "heureQC": "15:00", "jour": 6, "mois": 3, "annee": 2026, "ancre": "seance-33", "affiche": "", "resume": "", "note": null, "salle": "", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": false, "utcEpoch": 1772827200000, "trailerUrl": "", "externalUrl": "", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 37, "titre": "Interstellar", "fmt": "2D", "type": "film", "heureFR": "21:00", "heureQC": "15:00", "jour": 6, "mois": 3, "annee": 2026, "ancre": "seance-37", "affiche": "https://image.tmdb.org/t/p/w500/1pnigkWWy8W032o9TKDneBa3eVK.jpg", "resume": "Dans un futur proche, face à une Terre exsangue, un groupe d’explorateurs utilise un vaisseau interstellaire pour franchir un trou de ver permettant de parcourir des distances jusque‐là infranchissables. Leur but : trouver un nouveau foyer pour l’humanité.", "note": 8.5, "salle": "", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": false, "utcEpoch": 1772827200000, "trailerUrl": "https://www.youtube.com/watch?v=kTGDxqUowq4", "externalUrl": "https://www.themoviedb.org/movie/157336", "dureeMin": 169, "dateSortie": "2014-11-05", "classificationAge": "TP"}, {"id": 34, "titre": "Fallout — S02 Ép. 1 3 5", "fmt": "2D", "type": "serie", "heureFR": "21:00", "heureQC": "15:00", "jour": 4, "mois": 3, "annee": 2026, "ancre": "seance-34", "affiche": "https://image.tmdb.org/t/p/w500/t1s0O5Ysy9YhLFLiKgimhFQZBiu.jpg", "resume": "Qu’en dites-vous, Mme Maclean ?", "note": 8.1, "salle": "", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": 2, "episodes": "1 3 5", "passee": false, "utcEpoch": 1772654400000, "trailerUrl": "https://www.youtube.com/watch?v=dkY47XifLmo", "externalUrl": "https://www.themoviedb.org/tv/106379", "dureeMin": 0, "dateSortie": "2024-04-10", "classificationAge": "15"}, {"id": 39, "titre": "Interstellar", "fmt": "3D", "type": "film", "heureFR": "21:00", "heureQC": "15:00", "jour": 3, "mois": 3, "annee": 2026, "ancre": "seance-39", "affiche": "https://image.tmdb.org/t/p/w500/1pnigkWWy8W032o9TKDneBa3eVK.jpg", "resume": "Dans un futur proche, face à une Terre exsangue, un groupe d’explorateurs utilise un vaisseau interstellaire pour franchir un trou de ver permettant de parcourir des distances jusque‐là infranchissables. Leur but : trouver un nouveau foyer pour l’humanité.", "note": 8.5, "salle": "", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": false, "utcEpoch": 1772568000000, "trailerUrl": "https://www.youtube.com/watch?v=kTGDxqUowq4", "externalUrl": "https://www.themoviedb.org/movie/157336", "dureeMin": 169, "dateSortie": "2014-11-05", "classificationAge": "TP"}, {"id": 32, "titre": "COldplay", "fmt": "2D", "type": "concert", "heureFR": "21:00", "heureQC": "15:00", "jour": 2, "mois": 3, "annee": 2026, "ancre": "seance-32", "affiche": "", "resume": "", "note": null, "salle": "", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": false, "utcEpoch": 1772481600000, "trailerUrl": "", "externalUrl": "", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 38, "titre": "Ugly Betty — S01 Ép. 1", "fmt": "2D", "type": "serie", "heureFR": "21:00", "heureQC": "15:00", "jour": 1, "mois": 3, "annee": 2026, "ancre": "seance-38", "affiche": "https://image.tmdb.org/t/p/w500/m4p0F6qg9SbP1DctNk0jPTWBbuA.jpg", "resume": "Betty Suarez n'est pas spécialement belle, mais elle est douce, intelligente et travaille dur. Dans un monde régi par les apparences, ses qualités sont invisibles. Pourtant, le président de Meade Publications l'engage pour devenir l'assistante de son fils, Daniel, récemment promu à la tête d'un prestigieux magazine de mode. Il espère ainsi obliger son potentiel successeur à s'intéresser davantage à son travail plutôt qu'à la gent féminine. Si au début leur association est explosive, ils vont bientôt devenir un duo redoutable...", "note": 6.4, "salle": "", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": 1, "episodes": "1", "passee": false, "utcEpoch": 1772395200000, "trailerUrl": "https://www.youtube.com/watch?v=0IFgj1A6uMU", "externalUrl": "https://www.themoviedb.org/tv/4626", "dureeMin": 43, "dateSortie": "2006-09-28", "classificationAge": "15"}, {"id": 5, "titre": "Titanic", "fmt": "3D", "type": "movie", "heureFR": "21:00", "heureQC": "15:00", "jour": 27, "mois": 2, "annee": 2026, "ancre": "seance-5", "affiche": "https://image.tmdb.org/t/p/w500/vpsvHLkoeKUjceIMeNSqCp3xEyY.jpg", "resume": "Southampton, 10 avril 1912. Le paquebot le plus grand et le plus moderne du monde, réputé pour son insubmersibilité, le « Titanic », appareille pour son premier voyage. Quatre jours plus tard, il heurte un iceberg. À son bord, un artiste pauvre et une grande bourgeoise tombent amoureux.", "note": 7.9, "salle": "Iceberg", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": false, "utcEpoch": 1772222400000, "trailerUrl": "", "externalUrl": "", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 25, "titre": "L'Exorciste", "fmt": "2D", "type": "film", "heureFR": "21:00", "heureQC": "15:00", "jour": 27, "mois": 2, "annee": 2026, "ancre": "seance-25", "affiche": "https://image.tmdb.org/t/p/w500/rJU6uv4ADDV0aYdiy7wyIf2nCjS.jpg", "resume": "Regan, une adolescente, présente depuis quelque temps d’étranges symptômes. Après avoir épuisé les solutions médicales, la mère de Regan consulte un prêtre-psychiatre qui est rapidement convaincu que Regan est possédée et que seul un exorcisme pourra la \"guérir\".", "note": 7.7, "salle": "[NSFW]", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": false, "utcEpoch": 1772222400000, "trailerUrl": "https://www.youtube.com/watch?v=kuowPVqvnRk", "externalUrl": "https://www.themoviedb.org/movie/9552", "dureeMin": 133, "dateSortie": "1973-12-26", "classificationAge": "18"}, {"id": 1, "titre": "Roman Frayssinet  —  Roman Frayssinet", "fmt": "2D", "type": "spectacle", "heureFR": "21:00", "heureQC": "15:00", "jour": 25, "mois": 2, "annee": 2026, "ancre": "seance-1", "affiche": "", "resume": "Artiste / Compagnie : Roman Frayssinet", "note": null, "salle": "Salle de Beta Test", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": false, "utcEpoch": 1772049600000, "trailerUrl": "", "externalUrl": "", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 7, "titre": "Beetlejuice Beetlejuice", "fmt": "3D", "type": "film", "heureFR": "21:00", "heureQC": "15:00", "jour": 25, "mois": 2, "annee": 2026, "ancre": "seance-7", "affiche": "https://image.tmdb.org/t/p/w500/4M8fnQF821aVFBbhLdTQGf4j4W9.jpg", "resume": "À la suite d'une tragédie familiale inattendue, trois générations de la famille Deetz rentrent dans leur maison à Winter River, toujours hantée par Beetlejuice. Là-bas, Lydia voit sa vie prendre un nouveau tournant lorsque Astrid, sa fille en plein âge rebelle, découvre la mystérieuse maquette de la ville et que le portail vers l'au-delà s'ouvre accidentellement. Les ennuis se rapprochent des deux royaumes, et ce n'est qu'une question de temps avant que quelqu'un ne prononce le nom de Beetlejuice trois fois et que ce démon malicieux revienne pour semer le chaos sur son passage.", "note": 6.9, "salle": "BigscreenFr  Beetlejuice Beetlejuice", "diffuseur": "nicolas.dumont", "saison": null, "episodes": "", "passee": false, "utcEpoch": 1772049600000, "trailerUrl": "", "externalUrl": "", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 18, "titre": "NARUTO — S01 Ép. 18", "fmt": "3D", "type": "anime", "heureFR": "21:00", "heureQC": "15:00", "jour": 25, "mois": 2, "annee": 2026, "ancre": "seance-18", "affiche": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx20-dE6UHbFFg1A5.jpg", "resume": "Naruto Uzumaki, a hyperactive and knuckle-headed ninja, lives in Konohagakure, the Hidden Leaf village. Moments prior to his birth, a huge demon known as the Kyuubi, the Nine-tailed Fox, attacked Konohagakure and wreaked havoc. In order to put an end to the Kyuubi's rampage, the leader of the village, the 4th Hokage, sacrificed his life and sealed the monstrous beast inside the newborn Naruto.   \nShunned because of the presence of the Kyuubi inside him, Naruto struggles to find his place in the ", "note": 8.0, "salle": "", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": 1, "episodes": "18", "passee": false, "utcEpoch": 1772049600000, "trailerUrl": "https://www.youtube.com/watch?v=-G9BqkgZXRA", "externalUrl": "https://anilist.co/anime/20", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 6, "titre": "Love Actually", "fmt": "3D", "type": "film", "heureFR": "21:00", "heureQC": "15:00", "jour": 25, "mois": 2, "annee": 2026, "ancre": "seance-6", "affiche": "https://image.tmdb.org/t/p/w500/rJAML5icaPEkj8CU4wLHjpL4RWd.jpg", "resume": "L'amour est partout, imprévisible, inexplicable, insurmontable. Il frappe quand il veut et souvent, ça fait pas mal de dégâts... Pour le nouveau Premier Ministre britannique, il va prendre la jolie forme d'une jeune collaboratrice. Pour l'écrivain au coeur brisé parti se réfugier dans le sud de la France, il surgira d'un lac. Il s'éloigne de cette femme qui, installée dans une vie de couple ronronnante, suspecte soudain son mari de songer à une autre. Il se cache derrière les faux-semblants de ce meilleur ami qui aurait bien voulu être autre chose que le témoin du mariage de celle qu'il aime. Pour ce veuf et son beau-fils, pour cette jeune femme qui adore son collègue, l'amour est l'enjeu, le but, mais également la source d'innombrables complications. À l'approche de Noël, à Londres, ces vies et ces amours vont se croiser, se frôler et se confronter.", "note": 7.1, "salle": "Prout", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": false, "utcEpoch": 1772049600000, "trailerUrl": "", "externalUrl": "", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 28, "titre": "La Méthode Williams", "fmt": "3D", "type": "film", "heureFR": "20:45", "heureQC": "14:45", "jour": 25, "mois": 2, "annee": 2026, "ancre": "seance-28", "affiche": "https://image.tmdb.org/t/p/w500/uJp66jFj6a0eUu7Cf20xFwJd4l3.jpg", "resume": "Focus sur la personnalité de l'entraîneur de tennis Richard Williams, père des joueuses mondiales Venus et Serena. Il n'avait aucune expérience dans le sport mais lorsque ses filles ont eu quatre ans, il a élaboré un plan de 78 pages décrivant l'entraînement des futures championnes. Les sœurs Williams sont devenues deux des plus grandes joueuses de l'histoire du tennis. Serena est sans conteste la meilleure tenniswoman de tous les temps, avec 23 victoires en tournois du Grand Chelem. Venus Williams a remporté sept titres en Grand Chelem.", "note": 7.6, "salle": "Secoto_fr_3D", "diffuseur": "(◉‿◉) S҉E҉C҉O҉T҉O҉ (◉‿◉)", "saison": null, "episodes": "", "passee": false, "utcEpoch": 1772048700000, "trailerUrl": "https://www.youtube.com/watch?v=OskpsfvISCA", "externalUrl": "https://www.themoviedb.org/movie/614917", "dureeMin": 144, "dateSortie": "2021-11-18", "classificationAge": "TP"}, {"id": 30, "titre": "Fallout — S01 Intégrale", "fmt": "3D", "type": "serie", "heureFR": "21:00", "heureQC": "15:00", "jour": 24, "mois": 2, "annee": 2026, "ancre": "seance-30", "affiche": "https://image.tmdb.org/t/p/w500/rBIeGNSb2lAh3i2mC2pjyIJVV4I.jpg", "resume": "Tirée de l'un des plus grands jeux vidéo de tous les temps, Fallout est une histoire d'inégalités dans un monde où tous sont égaux face au chaos. Deux cents ans après l'apocalypse, les pacifiques habitants de luxueux abris antiatomiques sont contraints de retourner dans le monde incroyablement complexe, joyeusement étrange et extrêmement violent qui les attend à la surface.", "note": 8.1, "salle": "TEST", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": 1, "episodes": "intégrale", "passee": true, "utcEpoch": 1771963200000, "trailerUrl": "https://www.youtube.com/watch?v=dkY47XifLmo", "externalUrl": "https://www.themoviedb.org/tv/106379", "dureeMin": 0, "dateSortie": "2024-04-10", "classificationAge": "15"}, {"id": 36, "titre": "Jean-Michel Jarre - La Concorde", "fmt": "3D", "type": "concert", "heureFR": "21:00", "heureQC": "15:00", "jour": 24, "mois": 2, "annee": 2026, "ancre": "seance-36", "affiche": "https://image.tmdb.org/t/p/w500/ArkzaozDfWcCEB9zUAEa7VhMTky.jpg", "resume": "", "note": 7.0, "salle": "", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": true, "utcEpoch": 1771963200000, "trailerUrl": "", "externalUrl": "https://www.themoviedb.org/movie/451689", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 14, "titre": "Astérix & Obélix : Mission Cléopâtre", "fmt": "2D", "type": "film", "heureFR": "21:00", "heureQC": "15:00", "jour": 23, "mois": 2, "annee": 2026, "ancre": "seance-14", "affiche": "https://image.tmdb.org/t/p/w500/2lC9lzozlzVxCsSgPjRz5AWcz00.jpg", "resume": "Cléopâtre, la reine d’Égypte, décide, pour défier l’empereur romain Jules César, de construire en trois mois un palais somptueux en plein désert. Si elle y parvient, celui‐ci devra concéder publiquement que le peuple égyptien est le plus grand de tous les peuples. Pour ce faire, Cléopâtre fait appel à Numérobis, un architecte d’avant‐garde plein d’énergie. S’il réussit, elle le couvrira d’or. S’il échoue, elle le jettera aux crocodiles. Celui‐ci, conscient du défi à relever, cherche de l’aide auprès de son vieil ami Panoramix. Le druide fait le voyage en Égypte avec Astérix et Obélix. De son côté, Amonbofis, l’architecte officiel de Cléopâtre, jaloux que la reine ait choisi Numérobis pour construire le palais, va tout mettre en œuvre pour faire échouer son concurrent.", "note": 7.4, "salle": "TEST", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": true, "utcEpoch": 1771876800000, "trailerUrl": "https://www.youtube.com/watch?v=lj0ze1kXfls", "externalUrl": "https://www.themoviedb.org/movie/2899", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 17, "titre": "Shérif, fais-moi peur ! — S01 Intégrale", "fmt": "3D", "type": "serie", "heureFR": "21:00", "heureQC": "15:00", "jour": 23, "mois": 2, "annee": 2026, "ancre": "seance-17", "affiche": "https://image.tmdb.org/t/p/w500/rwbHz3fq5j6Fdf1nrraHLzRvdP2.jpg", "resume": "13 épisodes | Saison produite en 1979 | 1ère diffusion : janvier 1979 sur CBS (U.S.A.)", "note": 7.3, "salle": "Le Valhalla de Frag", "diffuseur": "FragThor", "saison": 1, "episodes": "Intégrale", "passee": true, "utcEpoch": 1771876800000, "trailerUrl": "https://www.youtube.com/watch?v=J4fjnmBlFWc", "externalUrl": "https://www.themoviedb.org/tv/397", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 19, "titre": "Poséidon", "fmt": "3D", "type": "film", "heureFR": "21:00", "heureQC": "15:00", "jour": 23, "mois": 2, "annee": 2026, "ancre": "seance-19", "affiche": "https://image.tmdb.org/t/p/w500/4VrwxE0CDoXxfgTRD11gCFlYaFP.jpg", "resume": "Une nuit de Saint Sylvestre festive a commencé au milieu de l'Atlantique Nord, sur le luxueux navire de croisière Poséidon. De nombreux passagers se sont rassemblés dans l'opulente salle de bal pour fêter dignement l'événement avec le capitaine Bradford. Pendant ce temps, le second scrute avec inquiétude l'horizon du haut de la passerelle. La menace surgit en quelques secondes, sous la forme d'une vague géante de plus de 30 mètres de haut, fonçant à toute allure sur le navire. Le second redresse la barre pour éviter un choc frontal, mais il est déjà trop tard. La muraille d'eau se fracasse avec une violence inouïe sur le paquebot qu'elle retourne, quille en l'air. Quelques centaines de rescapés se retrouvent dans la salle de bal, encore intacte quoique située sous la ligne de flottaison…", "note": 5.9, "salle": "", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": true, "utcEpoch": 1771876800000, "trailerUrl": "https://www.youtube.com/watch?v=TtZGfLoe1lA", "externalUrl": "https://www.themoviedb.org/movie/503", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 24, "titre": "L'Exorciste", "fmt": "3D", "type": "film", "heureFR": "21:00", "heureQC": "15:00", "jour": 23, "mois": 2, "annee": 2026, "ancre": "seance-24", "affiche": "https://image.tmdb.org/t/p/w500/rJU6uv4ADDV0aYdiy7wyIf2nCjS.jpg", "resume": "Regan, une adolescente, présente depuis quelque temps d’étranges symptômes. Après avoir épuisé les solutions médicales, la mère de Regan consulte un prêtre-psychiatre qui est rapidement convaincu que Regan est possédée et que seul un exorcisme pourra la \"guérir\".", "note": 7.7, "salle": "", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": true, "utcEpoch": 1771876800000, "trailerUrl": "https://www.youtube.com/watch?v=kuowPVqvnRk", "externalUrl": "https://www.themoviedb.org/movie/9552", "dureeMin": 133, "dateSortie": "1973-12-26", "classificationAge": "18"}, {"id": 13, "titre": "Brotherhood of Lions", "fmt": "3D", "type": "documentaire", "heureFR": "23:00", "heureQC": "17:00", "jour": 22, "mois": 2, "annee": 2026, "ancre": "seance-13", "affiche": "https://image.tmdb.org/t/p/w500/lcU9hLWx52rllsk2BFPF5JqGc1v.jpg", "resume": "A story of the daily lives and struggles of five young lions in the Black Rock region of Kenya’s Masai Mara reserve. Born in 2017, the lions were given names by the Masai people to suit their personalities: Olumina, the lame one, is the most sexually active but has difficulty walking. Olosiadu, the stay-behind, is cautious and often isolates himself. Lorkulup, the tag-along, has a permanent runny nose that hinders him from hunting with his brothers. Orpadan, the hunter, is always in the lead and first to their prey. Oloborr, the sister-killer, is the strongest male and the boss of the group", "note": 10.0, "salle": "ICI", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": true, "utcEpoch": 1771797600000, "trailerUrl": "", "externalUrl": "https://www.themoviedb.org/tv/271693", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 16, "titre": "Kaamelott — S01 Intégrale", "fmt": "3D", "type": "serie", "heureFR": "23:00", "heureQC": "17:00", "jour": 22, "mois": 2, "annee": 2026, "ancre": "seance-16", "affiche": "https://image.tmdb.org/t/p/w500/qRqS7gUwnHN7D55HWAKZTi634Sc.jpg", "resume": "Kaamelott est achevé, la cour est établie, les choses sérieuses peuvent commencer. Une grande Table Ronde est construite, autour de laquelle les chevaliers se réuniront pour organiser la Quête du Graal, diriger le royaume, narrer leurs aventures victorieuses pour la gloire des dieux et du peuple… Tout va pour le mieux. Du moins sur le papier, car en pratique, le roi Arthur réalise bien vite que ceux qui l’entourent, s’ils ne manquent pas de motivation, ne vont pas toujours dans le même sens que lui, ni à la même vitesse.", "note": 8.5, "salle": "TEST", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": 1, "episodes": "intégrale", "passee": true, "utcEpoch": 1771797600000, "trailerUrl": "https://www.youtube.com/watch?v=o8358kIZ8EU", "externalUrl": "https://www.themoviedb.org/tv/11466", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 23, "titre": "Mad Heidi", "fmt": "3D", "type": "film", "heureFR": "23:00", "heureQC": "17:00", "jour": 22, "mois": 2, "annee": 2026, "ancre": "seance-23", "affiche": "https://image.tmdb.org/t/p/w500/wjbZUa5FMx403pSh1QJAslPkGN8.jpg", "resume": "Dans une Suisse dystopique tombée sous la coupe fasciste d'un magnat du fromage, Heidi a une vie simple dans les Alpes. Son grand-père fait de son mieux pour protéger sa petite-fille de la dictature, mais bientôt son désir de liberté fait éclater l'enfer.", "note": 5.7, "salle": "", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": true, "utcEpoch": 1771797600000, "trailerUrl": "https://www.youtube.com/watch?v=tpKQtYWiRDY", "externalUrl": "https://www.themoviedb.org/movie/566805", "dureeMin": 92, "dateSortie": "2022-11-24", "classificationAge": "12"}, {"id": 8, "titre": "Ready Player One", "fmt": "3D", "type": "film", "heureFR": "21:00", "heureQC": "15:00", "jour": 22, "mois": 2, "annee": 2026, "ancre": "seance-8", "affiche": "https://image.tmdb.org/t/p/w500/832ngDVXhOVp6HBnuMMeeWTrGXN.jpg", "resume": "En 2045, le monde est au bord du chaos. Les êtres humains se réfugient dans l'OASIS, univers virtuel mis au point par le brillant et excentrique James Halliday. Avant de disparaître, celui-ci a décidé de léguer son immense fortune à quiconque découvrira l'œuf de Pâques numérique qu'il a pris soin de dissimuler dans l'OASIS. L'appât du gain provoque une compétition planétaire. Mais lorsqu'un jeune garçon, Wade Watts, qui n'a pourtant pas le profil d'un héros, décide de participer à la chasse au trésor, il est plongé dans un monde parallèle à la fois mystérieux et inquiétant…", "note": 7.6, "salle": "Cinéma", "diffuseur": "Statik", "saison": null, "episodes": "", "passee": true, "utcEpoch": 1771790400000, "trailerUrl": "", "externalUrl": "", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 22, "titre": "Grève party", "fmt": "2D", "type": "film", "heureFR": "21:00", "heureQC": "15:00", "jour": 22, "mois": 2, "annee": 2026, "ancre": "seance-22", "affiche": "https://image.tmdb.org/t/p/w500/kLxUuhkffi4EST735RcT3jszjd7.jpg", "resume": "Un matin du mois de mai, M. Jean, ex-baron de la lutte syndicale des années soixante et aujourd'hui libraire sur la place Sainte-Geneviève, reprend du service par amitié pour René, un ancien camarade. Du fond de sa librairie, il orchestre au téléphone la grève des Messageries. La radio annonce une journée noire. Paralysie des transports, manifestation générale. Rapidement, grâce à M. Jean, les esprits s'enflamment. La montagne Sainte-Geneviève est en éruption. Les habitants du quartier déroulent une banderole : « Nous voulons vivre une journée historique. »", "note": 4.8, "salle": "Grève Party", "diffuseur": "Oagern", "saison": null, "episodes": "", "passee": true, "utcEpoch": 1771790400000, "trailerUrl": "", "externalUrl": "https://www.themoviedb.org/movie/170028", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 10, "titre": "Wayne's World", "fmt": "3D", "type": "film", "heureFR": "18:25", "heureQC": "12:25", "jour": 22, "mois": 2, "annee": 2026, "ancre": "seance-10", "affiche": "https://image.tmdb.org/t/p/w500/R8Q9qIl51SHtcX5oWSBbz4YhQV.jpg", "resume": "Wayne Campbell a transformé la cave de ses parents en studio TV. Il anime chaque nuit avec son copain Garth : Wayne’s World, une émission musicale hyper-fauchée et déjantée. Ces deux adolescents prolongés sont fans de hard-rock et s’expriment dans un langage codé : “robotouffe”, “mirthmobile”, “cha-wingue”, “mégateuf”… Leur succès grandissant, ils sont contactés par un jeune producteur aux dents “top longues” pour être diffusés à travers tout le pays… “Le plus grand film du monde” (dixit Wayne) est la “méga-bonne” surprise du Box-office 92.", "note": 6.7, "salle": "TEST FONCTION RAPPEL", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": true, "utcEpoch": 1771781100000, "trailerUrl": "https://www.youtube.com/watch?v=JTz_RfgX4JA", "externalUrl": "https://www.themoviedb.org/movie/8872", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 12, "titre": "RRRrrrr!!!", "fmt": "3D", "type": "film", "heureFR": "17:35", "heureQC": "11:35", "jour": 22, "mois": 2, "annee": 2026, "ancre": "seance-12", "affiche": "https://image.tmdb.org/t/p/w500/qsGU6myn85MfqpNAxzJtxJ3VgrM.jpg", "resume": "Il y a 37 000 ans, deux tribus voisines vivaient en paix… à un cheveu près. Pendant que la tribu des Cheveux Propres coulait des jours paisibles en gardant pour elle seule le secret de la formule du shampooing, la tribu des Cheveux Sales se lamentait. Son chef décida d’envoyer un espion pour voler la recette. Mais un événement bien plus grave allait bouleverser la vie des Cheveux Propres : pour la première fois dans l’histoire de l’humanité, un crime venait d’être commis. Comment découvrir son auteur ? Au temps des mammouths et des moumoutes commence la première enquête policière de l’Histoire.", "note": 6.3, "salle": "TEST DIFF DEMARRAGE", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": true, "utcEpoch": 1771778100000, "trailerUrl": "https://www.youtube.com/watch?v=y_UKPVezalU", "externalUrl": "https://www.themoviedb.org/movie/21778", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 11, "titre": "RRRrrrr!!!", "fmt": "3D", "type": "film", "heureFR": "17:32", "heureQC": "11:32", "jour": 22, "mois": 2, "annee": 2026, "ancre": "seance-11", "affiche": "https://image.tmdb.org/t/p/w500/qsGU6myn85MfqpNAxzJtxJ3VgrM.jpg", "resume": "Il y a 37 000 ans, deux tribus voisines vivaient en paix… à un cheveu près. Pendant que la tribu des Cheveux Propres coulait des jours paisibles en gardant pour elle seule le secret de la formule du shampooing, la tribu des Cheveux Sales se lamentait. Son chef décida d’envoyer un espion pour voler la recette. Mais un événement bien plus grave allait bouleverser la vie des Cheveux Propres : pour la première fois dans l’histoire de l’humanité, un crime venait d’être commis. Comment découvrir son auteur ? Au temps des mammouths et des moumoutes commence la première enquête policière de l’Histoire.", "note": 6.3, "salle": "ICI", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": true, "utcEpoch": 1771777920000, "trailerUrl": "https://www.youtube.com/watch?v=y_UKPVezalU", "externalUrl": "https://www.themoviedb.org/movie/21778", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 3, "titre": "Moi sous la douche, concert 2026  —  Moi même", "fmt": "2D", "type": "spectacle", "heureFR": "07:28", "heureQC": "01:28", "jour": 22, "mois": 2, "annee": 2026, "ancre": "seance-3", "affiche": "", "resume": "Artiste / Compagnie : Moi même", "note": null, "salle": "Séquence en full no vision avec audio dolby douche avec résonnance puissance 4", "diffuseur": "Zaz", "saison": null, "episodes": "", "passee": true, "utcEpoch": 1771741680000, "trailerUrl": "", "externalUrl": "", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}, {"id": 27, "titre": "La Honte de la jungle", "fmt": "2D", "type": "film", "heureFR": "21:00", "heureQC": "15:00", "jour": 21, "mois": 2, "annee": 2026, "ancre": "seance-27", "affiche": "https://image.tmdb.org/t/p/w500/s1MMBBVOPiisSZrhI2ihGbFuqZh.jpg", "resume": "Dans sa cabane perchée dans les arbres, Shame coule des jours heureux en compagnie de June, sa femme, et Flicka, son singe, un brave garçon dont il n'y a rien à dire. Mais, non loin de là, vit la reine Bazonga, protégée dans son royaume souterrain par une armée de créatures phalliques, les zombits. Prête à conquérir le monde, elle n'a qu'un souci : sa calvitie. Seule une greffe pourrait la sauver et, justement, June a les cheveux qu'il lui faudrait…", "note": 5.9, "salle": "[NSFW]", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": true, "utcEpoch": 1771704000000, "trailerUrl": "", "externalUrl": "https://www.themoviedb.org/movie/50237", "dureeMin": 75, "dateSortie": "1975-09-04", "classificationAge": "18"}, {"id": 31, "titre": "Interstellar", "fmt": "3D", "type": "film", "heureFR": "21:00", "heureQC": "15:00", "jour": 6, "mois": 2, "annee": 2026, "ancre": "seance-31", "affiche": "https://image.tmdb.org/t/p/w500/1pnigkWWy8W032o9TKDneBa3eVK.jpg", "resume": "Dans un futur proche, face à une Terre exsangue, un groupe d’explorateurs utilise un vaisseau interstellaire pour franchir un trou de ver permettant de parcourir des distances jusque‐là infranchissables. Leur but : trouver un nouveau foyer pour l’humanité.", "note": 8.5, "salle": "", "diffuseur": "🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑", "saison": null, "episodes": "", "passee": true, "utcEpoch": 1770408000000, "trailerUrl": "https://www.youtube.com/watch?v=kTGDxqUowq4", "externalUrl": "https://www.themoviedb.org/movie/157336", "dureeMin": 169, "dateSortie": "2014-11-05", "classificationAge": "TP"}, {"id": 15, "titre": "Mad Heidi", "fmt": "3D", "type": "film", "heureFR": "21:00", "heureQC": "15:00", "jour": 22, "mois": 1, "annee": 2026, "ancre": "seance-15", "affiche": "https://image.tmdb.org/t/p/w500/wjbZUa5FMx403pSh1QJAslPkGN8.jpg", "resume": "Dans une Suisse dystopique tombée sous la coupe fasciste d'un magnat du fromage, Heidi a une vie simple dans les Alpes. Son grand-père fait de son mieux pour protéger sa petite-fille de la dictature, mais bientôt son désir de liberté fait éclater l'enfer.", "note": 5.7, "salle": "Le Valhalla de Frag", "diffuseur": "FragThor", "saison": null, "episodes": "", "passee": true, "utcEpoch": 1769112000000, "trailerUrl": "https://www.youtube.com/watch?v=tpKQtYWiRDY", "externalUrl": "https://www.themoviedb.org/movie/566805", "dureeMin": 0, "dateSortie": "", "classificationAge": ""}]</script>
+<script type="application/json" id="sd-data">{"mois_labels": ["Jan 2026", "Fév 2026", "Mar 2026"], "mois_values": [1, 24, 11], "type_labels": ["🎬 Film", "🎤 Concert", "🎬 Film", "🍥 Animé", "🎭 Spectacle", "📺 Série", "🎬 Film", "🎙️ Doc"], "type_values": [19, 5, 5, 2, 2, 1, 1, 1], "fmt_3d": 23, "fmt_2d": 13}</script>
+
+<script>
+function _fmtAge(cl){if(!cl)return'';const m={'U':'✅ Tous publics','G':'✅ Tous publics','PG':'🟡 -12 ans','PG-13':'🟠 -13 ans','R':'🔴 -17 ans','NC-17':'🔞 -18 ans','Tous publics':'✅ Tous publics','10':'🟡 -10 ans','12':'🟠 -12 ans','16':'🔴 -16 ans','18':'🔞 -18 ans','TP':'✅ Tous publics','NR':'⚪ Non classé','TV-G':'✅ Tous publics','TV-Y':'✅ Jeunesse','TV-PG':'🟡 Guidé','TV-14':'🟠 -14 ans','TV-MA':'🔞 -18 ans'};const c=cl.trim();return m[c]||(c.match(/^\d+$/)?'🔴 -'+c+' ans':'⚠️ '+c);}
+function _extractYtId(url){
+  if(!url)return null;
+  try{
+    const u=new URL(url);
+    const h=u.hostname.replace('www.','');
+    if(h==='youtu.be')return u.pathname.slice(1).split('/')[0]||null;
+    if(h==='youtube.com'||h==='m.youtube.com'){
+      const v=u.searchParams.get('v');if(v)return v;
+      const p=u.pathname.split('/').filter(Boolean);
+      if(p[0]==='embed'||p[0]==='shorts'||p[0]==='v')return p[1]||null;
+    }
+  }catch(e){
+    const i=url.indexOf('v=');if(i!==-1)return url.slice(i+2,i+13)||null;
+    const s=url.split('/');const last=s[s.length-1];return last.length===11?last:null;
+  }
+  return null;
+}
+let SEANCES = [];
+let SD = {};
+try {
+  SEANCES = JSON.parse(document.getElementById('seances-data').textContent);
+} catch(e) { console.error('Erreur chargement SEANCES:', e); }
+try {
+  SD = JSON.parse(document.getElementById('sd-data').textContent);
+} catch(e) { console.error('Erreur chargement SD:', e); }
+const MOIS_FR=["","Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"];
+const JOURS_FR=["Lun","Mar","Mer","Jeu","Ven","Sam","Dim"];
+let aA=2026,mA=2,vue='mois',ft='',rq='';
+
+function setFiltre(t,b){ft=t;document.querySelectorAll('.filtre-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');appFiltres();rendreMois();}
+
+let triMode = 'date';
+function setTri(mode, btn) {
+  triMode = mode;
+  document.querySelectorAll('.tri-btn').forEach(x => x.classList.remove('active'));
+  btn.classList.add('active');
+  appFiltres();
+}
+function _trierCartes() {
+  const container = document.getElementById('cards-avenir');
+  if (!container) return;
+  const cartes = Array.from(container.querySelectorAll(':scope > .card'));
+  if (!cartes.length) return;
+  cartes.sort(function(a, b) {
+    // Extraire l'id numérique depuis "seance-26" → 26
+    const idA = parseInt((a.id || '').replace('seance-', ''), 10);
+    const idB = parseInt((b.id || '').replace('seance-', ''), 10);
+    const sa = SEANCES.find(s => s.id === idA);
+    const sb = SEANCES.find(s => s.id === idB);
+    if (!sa || !sb) return 0;
+    if (triMode === 'date')  return (sa.utcEpoch||0) - (sb.utcEpoch||0);
+    if (triMode === 'titre') return sa.titre.localeCompare(sb.titre, 'fr');
+    if (triMode === 'type')  return (sa.type||'').localeCompare(sb.type||'');
+    if (triMode === 'note')  return (sb.note||0) - (sa.note||0);
+    return 0;
+  });
+  // Fragment pour une seule opération DOM
+  const frag = document.createDocumentFragment();
+  cartes.forEach(c => frag.appendChild(c));
+  container.appendChild(frag);
+}
+
+function filtrer(){
+  rq=document.getElementById('search').value.toLowerCase().trim();
+  appFiltres();
+  // ── Recherche globale dans l'historique ──────────────────────────
+  if(rq.length>=2){
+    const histoMatch=_getPassees().filter(s=>
+      s.titre.toLowerCase().includes(rq)||
+      (s.diffuseur||'').toLowerCase().includes(rq)||
+      (s.resume||'').toLowerCase().includes(rq)||
+      (s.salle||'').toLowerCase().includes(rq)
+    );
+    _afficherRecherchePasees(histoMatch,rq);
+  }else{
+    _cacherRecherchePassees();
+  }
+}
+
+function _afficherRecherchePasees(liste,query){
+  let section=document.getElementById('search-results-section');
+  if(!section){
+    section=document.createElement('div');
+    section.id='search-results-section';
+    section.style.cssText='margin:1rem 0;padding:1rem;background:var(--bg2);border:1px solid var(--accent);border-radius:var(--radius);';
+    const toolbar=document.querySelector('.toolbar');
+    toolbar.parentNode.insertBefore(section,toolbar.nextSibling.nextSibling);
+  }
+  if(!liste.length){
+    section.innerHTML='<div style="color:var(--text2);font-size:.9rem">🔍 Aucun résultat dans l&#39;historique pour <strong>"'+query+'"</strong></div>';
+    section.style.display='';
+    return;
+  }
+  const groupes=_groupParTitre(liste);
+  const items=groupes.slice(0,12).map(g=>{
+    const nb=g.diffusions.length;
+    const aff=g.affiche?`<img src="${g.affiche}" style="width:44px;height:66px;object-fit:cover;border-radius:6px;flex-shrink:0" alt="">`:`<div style="width:44px;height:66px;background:var(--bg3);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0">🎬</div>`;
+    return `<div onclick="ouvrirHistoModal('${encodeURIComponent(g.titre)}')" style="display:flex;align-items:center;gap:.7rem;padding:.5rem .7rem;border-radius:8px;cursor:pointer;background:var(--bg3);transition:background .15s" onmouseover="this.style.background='var(--bg)'" onmouseout="this.style.background='var(--bg3)'">
+      ${aff}
+      <div style="flex:1;min-width:0">
+        <div style="font-weight:700;font-size:.88rem;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${g.titre}</div>
+        <div style="font-size:.76rem;color:var(--text2);margin-top:.15rem">${TYPE_LABEL[g.type]||'🎬'} · ${nb} diffusion${nb>1?'s':''} · 📼 Historique</div>
+      </div>
+      <span style="font-size:.7rem;color:var(--accent2);white-space:nowrap">Voir ›</span>
+    </div>`;
+  }).join('');
+  const extra=groupes.length>12?`<div style="font-size:.78rem;color:var(--text2);margin-top:.5rem;text-align:center">${groupes.length-12} résultat(s) supplémentaire(s) — affine ta recherche</div>`:'';
+  // Ouvrir automatiquement l'accordéon historique si fermé
+  const panel=document.getElementById('histo-panel');
+  const btn=document.getElementById('histo-toggle');
+  if(panel&&!panel.classList.contains('open')){toggleHistorique();}
+  // Propager la recherche dans la barre historique
+  const hs=document.getElementById('histo-search');
+  if(hs){hs.value=query;filtrerHistorique();}
+  section.innerHTML=`<div style="font-weight:700;color:var(--accent2);margin-bottom:.6rem;font-size:.9rem">📼 Résultats dans l'historique (${groupes.length} titre(s))</div><div style="display:flex;flex-direction:column;gap:.4rem">${items}</div>${extra}`;
+  section.style.display='';
+}
+
+function _cacherRecherchePassees(){
+  const section=document.getElementById('search-results-section');
+  if(section)section.style.display='none';
+  // Réinitialiser la barre de recherche historique
+  const hs=document.getElementById('histo-search');
+  if(hs&&hs.value){hs.value='';filtrerHistorique();}
+}
+
+function appFiltres(){
+  document.querySelectorAll('.card').forEach(c=>{
+    const t=!ft||c.dataset.type===ft;
+    const q=!rq||c.textContent.toLowerCase().includes(rq);
+    c.style.display=(t&&q)?'':'none';
+  });
+  _trierCartes();
+}
+function ouvrirDetail(id){
+  const s=SEANCES.find(x=>x.id===id);if(!s)return;
+  const ic=s.fmt==='3D'?'🥽':'📽️';
+  const tm={movie:'🎬 Film',tv:'📺 Série',anime:'🍥 Animé',documentaire:'🎙️ Doc',concert:'🎤 Concert',spectacle:'🎭 Spectacle'};
+  const iu=`seance_${s.id}.ics?v=1772006720`;
+  // webcal:// pour Apple Agenda, https:// pour Google Agenda
+  const baseIcs=`https://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_${s.id}.ics`;
+  const wu=`webcal://Dreadlocktopus.github.io/Dreadlocktopus_Bot-V5-Calendrier/seance_${s.id}.ics`;
+  const gcalUrl=`https://calendar.google.com/calendar/r?cid=https%3A%2F%2FDreadlocktopus.github.io%2FDreadlocktopus_Bot-V5-Calendrier%2Fseance_${s.id}.ics`;
+  let h='';
+  if(s.affiche) h+=`<img src="${s.affiche}" class="modal-poster" alt="${s.titre}">`;
+  h+=`<div class="modal-body"><div class="modal-titre">${ic} ${s.titre}</div>`;
+  h+=`<div class="modal-meta"><span class="badge badge-${s.fmt.toLowerCase()}">${s.fmt}</span><span class="badge badge-type">${tm[s.type]||'🎬 Film'}</span>`;
+  if(s.note) h+=`<span class="badge" style="background:#1a3a1a;color:#3fb950;border:1px solid #3fb950">⭐ ${s.note}/10</span>`;
+  h+=s.passee?`<span class="badge badge-passee">Diffusée</span>`:`<span class="badge badge-avenir">À venir</span>`;
+  if(s.classificationAge){const al=_fmtAge(s.classificationAge);h+=`<span class="badge" style="background:#3a1a1a;color:#ff9999;border:1px solid #6a3a3a">${al}</span>`;}
+  h+=`</div>`;
+  if(s.dureeMin>0){const h2=Math.floor(s.dureeMin/60),m2=s.dureeMin%60;const ds=h2?h2+"h":"";const ms=String(m2).padStart(2,"0");h+=`<div style="color:var(--text2);margin:.25rem 0">⏱️ <strong>Durée :</strong> ${ds}${ms}</div>`;}
+  if(s.dateSortie)h+=`<div style="color:var(--text2);margin:.2rem 0">📅 <strong>Sortie :</strong> ${s.dateSortie.substring(0,10)}</div>`;
+  h+=`<div class="horaires" style="margin:.8rem 0"><div class="horaire-bloc">🇫🇷 <span class="heure" style="font-size:1.05rem">${s.heureFR}</span></div><div class="horaire-bloc">🍁 <span class="heure" style="font-size:1.05rem">${s.heureQC}</span></div></div>`;
+  if(s.salle) h+=`<div style="color:var(--text2);margin:.25rem 0">🏠 <strong>Salle :</strong> ${s.salle}</div>`;
+  if(s.diffuseur) h+=`<div style="color:var(--text2);margin:.25rem 0">📡 <strong>Diffuseur :</strong> ${s.diffuseur}</div>`;
+  if(s.saison) h+=`<div style="color:var(--text2);margin:.25rem 0">📺 <strong>Saison ${s.saison}</strong>${s.episodes?' — Ép. '+s.episodes:''}</div>`;
+  if(s.resume) h+=`<div class="modal-resume">${s.resume}</div>`;
+  if(s.trailerUrl){
+    const ytId=_extractYtId(s.trailerUrl);
+    if(ytId){
+      const thumb=`https://img.youtube.com/vi/${ytId}/hqdefault.jpg`;
+      const ytUrl=`https://www.youtube.com/watch?v=${ytId}`;
+      h+=`<a class="modal-trailer" href="${ytUrl}" target="_blank" rel="noopener" title="🎬 Ouvrir la bande annonce sur YouTube">` +
+         `<img src="${thumb}" alt="Bande annonce" loading="lazy">` +
+         `<div class="modal-trailer-play"><svg viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">` +
+         `<circle cx="34" cy="34" r="34" fill="#FF0000CC"/>` +
+         `<polygon points="26,20 54,34 26,48" fill="white"/>` +
+         `</svg></div></a>`;
+    }
+  }
+  h+=`<div class="modal-actions"><a class="modal-ical" href="${iu}" download="seance_${s.id}.ics">📅 Télécharger (.ics)</a><a class="modal-gcal" href="${gcalUrl}" target="_blank" rel="noopener">🗓️ Google Agenda</a><a class="modal-webcal" href="${wu}">🍎 Apple Agenda</a>`;
+  if(s.externalUrl) h+=`<a class="modal-voir-plus" href="${s.externalUrl}" target="_blank" rel="noopener">🔗 Voir plus</a>`;
+  h+=`</div></div>`;
+  document.getElementById('modal-inner').innerHTML=h;
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function fermerDetail(e,f){if(f||!e||e.target===document.getElementById('modal-overlay')){document.getElementById('modal-overlay').classList.remove('open');document.body.style.overflow='';}}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')fermerDetail(null,true);});
+
+function sdM(a,m){return SEANCES.filter(s=>s.annee===a&&s.mois===m&&(!ft||s.type===ft));}
+// ── Auto-nav : si le mois courant est vide, aller au plus proche qui a des séances ──
+function _seancesParMois(y, m) {
+  // Ignore le filtre ft pour la navigation auto
+  return SEANCES.filter(s => s.annee === y && s.mois === m);
+}
+function _autoNavCalendrier() {
+  if (_seancesParMois(aA, mA).length > 0) return;  // mois courant OK
+  // Chercher le mois le plus proche avec des séances (±24 mois)
+  const now = new Date();
+  const thisY = now.getFullYear(), thisM = now.getMonth()+1;
+  // Priorité : mois futurs d'abord, puis passés
+  for (let delta = 1; delta <= 24; delta++) {
+    let tm = thisM + delta, ty = thisY;
+    while (tm > 12) { tm -= 12; ty++; }
+    if (_seancesParMois(ty, tm).length > 0) { aA = ty; mA = tm; return; }
+  }
+  for (let delta = 1; delta <= 24; delta++) {
+    let pm = thisM - delta, py = thisY;
+    while (pm < 1) { pm += 12; py--; }
+    if (_seancesParMois(py, pm).length > 0) { aA = py; mA = pm; return; }
+  }
+}
+function majNav(){
+  let pM=mA-1,pA=aA;if(pM<1){pM=12;pA--;}let sM=mA+1,sA=aA;if(sM>12){sM=1;sA++;}
+  document.getElementById('titre-mois').textContent=MOIS_FR[mA]+' '+aA;
+  document.getElementById('label-prec').textContent=MOIS_FR[pM];
+  document.getElementById('label-suiv').textContent=MOIS_FR[sM];
+}
+function naviguer(d){mA+=d;if(mA>12){mA=1;aA++;}if(mA<1){mA=12;aA--;}rendreMois();}
+function setVue(v,b){vue=v;document.querySelectorAll('.vue-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');rendreMois();}
+function rendreMois(){majNav();const s=sdM(aA,mA);if(vue==='mois')vMois(s);else if(vue==='semaine')vSem(s);else vJour(s);}
+
+function vMois(seances){
+  const pJ={};seances.forEach(s=>{if(!pJ[s.jour])pJ[s.jour]=[];pJ[s.jour].push(s);});
+  const pd=new Date(aA,mA-1,1).getDay(),dec=pd===0?6:pd-1,nb=new Date(aA,mA,0).getDate();
+  let h='<table id="cal-table"><thead><tr>';JOURS_FR.forEach(j=>h+=`<th>${j}</th>`);h+='</tr></thead><tbody><tr>';
+  let c=0,j=1;for(let i=0;i<dec;i++){h+='<td class="vide"></td>';c++;}
+  while(j<=nb){const ss=pJ[j]||[];h+=`<td class="jour${ss.length?' has-seance':''}"><span class="num-jour">${j}</span>`;
+    ss.forEach(s=>{const ic=s.fmt==='3D'?'🥽':'📽️';h+=`<span class="cal-event cal-${s.fmt.toLowerCase()}" onclick="ouvrirDetail(${s.id})">${ic} ${s.heureFR}<br><span class="cal-titre-film">${s.titre}</span></span>`;});
+    h+='</td>';c++;if(c%7===0&&j<nb)h+='</tr><tr>';j++;}
+  const r=7-(c%7);if(r<7)for(let i=0;i<r;i++)h+='<td class="vide"></td>';h+='</tr></tbody></table>';
+  document.getElementById('cal-body').innerHTML=h;
+}
+function vSem(seances){
+  if(!seances.length){document.getElementById('cal-body').innerHTML='<p class="vide-msg">Aucune séance ce mois.</p>';return;}
+  const pS={};seances.forEach(s=>{const d=new Date(aA,s.mois-1,s.jour);const t=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));t.setUTCDate(t.getUTCDate()+4-(t.getUTCDay()||7));const ys=new Date(Date.UTC(t.getUTCFullYear(),0,1));const w=Math.ceil((((t-ys)/86400000)+1)/7);const k=`${t.getUTCFullYear()}-${String(w).padStart(2,'0')}`;if(!pS[k])pS[k]={week:w,seances:[]};pS[k].seances.push(s);});
+  let h='';Object.keys(pS).sort().forEach(k=>{const {week,seances:ss}=pS[k];const p=ss[0];const d=new Date(aA,p.mois-1,p.jour);const lu=new Date(d);lu.setDate(d.getDate()-((d.getDay()+6)%7));const di=new Date(lu);di.setDate(lu.getDate()+6);const fd=x=>`${String(x.getDate()).padStart(2,'0')}/${String(x.getMonth()+1).padStart(2,'0')}`;h+=`<div class="semaine-bloc"><div class="semaine-titre">Semaine ${week} — du ${fd(lu)} au ${fd(di)}</div>`;ss.sort((a,b)=>a.jour-b.jour||a.heureFR.localeCompare(b.heureFR)).forEach(s=>{const ic=s.fmt==='3D'?'🥽':'📽️';const nj=JOURS_FR[new Date(aA,s.mois-1,s.jour).getDay()===0?6:new Date(aA,s.mois-1,s.jour).getDay()-1];h+=`<span class="semaine-event cal-${s.fmt.toLowerCase()}" onclick="ouvrirDetail(${s.id})"><span class="semaine-date">${nj} ${String(s.jour).padStart(2,'0')}/${String(s.mois).padStart(2,'0')} à ${s.heureFR}</span> ${ic} <strong>${s.titre}</strong></span>`;});h+=`</div>`;}); document.getElementById('cal-body').innerHTML=h;
+}
+function vJour(seances){
+  if(!seances.length){document.getElementById('cal-body').innerHTML='<p class="vide-msg">Aucune séance ce mois.</p>';return;}
+  const pJ={};seances.forEach(s=>{if(!pJ[s.jour])pJ[s.jour]=[];pJ[s.jour].push(s);});
+  let h='';Object.keys(pJ).map(Number).sort((a,b)=>a-b).forEach(j=>{const d=new Date(aA,mA-1,j);const nj=JOURS_FR[d.getDay()===0?6:d.getDay()-1];h+=`<div class="jour-bloc"><div class="jour-titre">${nj} ${j} ${MOIS_FR[mA]}</div>`;pJ[j].sort((a,b)=>a.heureFR.localeCompare(b.heureFR)).forEach(s=>{const ic=s.fmt==='3D'?'🥽':'📽️';h+=`<span class="semaine-event cal-${s.fmt.toLowerCase()}" onclick="ouvrirDetail(${s.id})"><span class="semaine-date">${s.heureFR}</span> ${ic} <strong>${s.titre}</strong></span>`;});h+=`</div>`;});
+  document.getElementById('cal-body').innerHTML=h;
+}
+
+let _chartsInits = 0;
+function _initCharts() {
+  if (typeof Chart === 'undefined') {
+    if (_chartsInits++ < 20) setTimeout(_initCharts, 500);
+    return;
+  }
+  if (!SD || !SD.mois_labels || !SD.mois_labels.length) {
+    // Aucune donnée : afficher un placeholder dans chaque graphique
+    ['chartMois','chartTypes','chartFormat'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        const p = document.createElement('p');
+        p.style.cssText = 'text-align:center;color:var(--text2);padding:2rem;font-size:.9rem';
+        p.textContent = '📊 Aucune donnée disponible pour le moment';
+        el.replaceWith(p);
+      }
+    });
+    return;
+  }
+  Chart.defaults.color = '#e6edf3';
+  const _mkChart = (id, cfg) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    try {
+      // Détruire l'instance précédente si elle existe
+      const ex = Chart.getChart(el);
+      if (ex) ex.destroy();
+      new Chart(el, cfg);
+    } catch(e) { console.warn(id+':', e); }
+  };
+  _mkChart('chartMois', {type:'bar',data:{labels:SD.mois_labels,datasets:[{label:'Diffusions',data:SD.mois_values,backgroundColor:'#1E90FF88',borderColor:'#1E90FF',borderWidth:1,borderRadius:4}]},options:{responsive:true,plugins:{legend:{display:false}},scales:{x:{grid:{color:'#30363d'}},y:{grid:{color:'#30363d'},ticks:{stepSize:1,precision:0}}}}});
+  _mkChart('chartTypes', {type:'doughnut',data:{labels:SD.type_labels,datasets:[{data:SD.type_values,backgroundColor:['#1E90FF','#3fb950','#bc8cff','#FF6B35','#FFD700','#FF69B4'],borderColor:'#161b22',borderWidth:2}]},options:{responsive:true,plugins:{legend:{position:'bottom'}}}});
+  _mkChart('chartFormat', {type:'doughnut',data:{labels:['🥽 3D','📽️ 2D'],datasets:[{data:[SD.fmt_3d,SD.fmt_2d],backgroundColor:['#1E90FF','#bc8cff'],borderColor:'#161b22',borderWidth:2}]},options:{responsive:true,plugins:{legend:{position:'bottom'}}}});
+}
+// Ré-init si la section stats devient visible (IntersectionObserver)
+(function() {
+  const sec = document.getElementById('graphiques');
+  if (!sec || typeof IntersectionObserver === 'undefined') return;
+  new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) _initCharts();
+  }, {threshold: 0.1}).observe(sec);
+})();
+
+
+// ═══════════════════════════════════════════════════════════════════════
+//  SECTION EN COURS + CARROUSEL 48H
+// ═══════════════════════════════════════════════════════════════════════
+
+const DUREE_DEFAUT_MS = 2 * 60 * 60 * 1000;  // 2h par défaut si pas de durée
+
+function _getSeanceDateTime(s) {
+  // Utilise l'epoch UTC stocké côté serveur (précis, gère l'heure d'été)
+  if (s.utcEpoch) return new Date(s.utcEpoch);
+  // Fallback : reconstruction depuis heureFR + offset Europe/Paris dynamique
+  const [h, m] = (s.heureFR || "00:00").split(":").map(Number);
+  const testDate = new Date(s.annee, s.mois-1, s.jour, 12, 0, 0);
+  const frStr = testDate.toLocaleTimeString("fr-FR", {timeZone:"Europe/Paris",hour:"2-digit"});
+  const offsetH = (parseInt(frStr, 10) - testDate.getUTCHours() + 24) % 24;
+  return new Date(Date.UTC(s.annee, s.mois-1, s.jour, h - offsetH, m, 0));
+}
+
+function _getDureeMs(s) {
+  return s.dureeMin > 0 ? s.dureeMin * 60 * 1000 : DUREE_DEFAUT_MS;
+}
+
+function rendreSectionLive() {
+  var now     = Date.now();
+  var section = document.getElementById('live');
+  var container = document.getElementById('live-container');
+  var titreEl   = document.getElementById('live-titre');
+  if (!section || !container) return;
+
+  var enCours = SEANCES.filter(function(s) {
+    var debut = _getSeanceDateTime(s).getTime();
+    return debut <= now && now < debut + _getDureeMs(s);
+  });
+
+  var dans48h = SEANCES.filter(function(s) {
+    var debut = _getSeanceDateTime(s).getTime();
+    return debut > now && debut <= now + 48 * 60 * 60 * 1000;
+  }).sort(function(a, b) { return _getSeanceDateTime(a).getTime() - _getSeanceDateTime(b).getTime(); });
+
+  // Rien du tout : section entièrement masquée
+  if (enCours.length === 0 && dans48h.length === 0) {
+    section.style.display = 'none';
+    return;
+  }
+  section.style.display = '';
+
+  var html = '';
+
+  if (enCours.length > 0) {
+    titreEl.innerHTML = '🔴 <span class="live-badge">EN DIRECT</span>&nbsp; En diffusion actuellement';
+    enCours.forEach(function(s) {
+      var debut   = _getSeanceDateTime(s).getTime();
+      var dureeMs = _getDureeMs(s);
+      var elapsed = now - debut;
+      var pct     = Math.min(100, Math.round(elapsed / dureeMs * 100));
+      var restMin = Math.round(Math.max(0, dureeMs - elapsed) / 60000);
+      var restStr = restMin >= 60
+        ? Math.floor(restMin/60) + 'h' + String(restMin % 60).padStart(2,'0')
+        : restMin + ' min';
+      var ic = s.fmt === '3D' ? '🥽' : '📽️';
+      html += '<div class="live-card" onclick="ouvrirDetail(' + s.id + ')">';
+      html += s.affiche
+        ? '<img src="' + s.affiche + '" class="live-poster" alt="' + s.titre.replace(/"/g,'') + '" loading="lazy">'
+        : '<div class="live-poster" style="display:flex;align-items:center;justify-content:center;font-size:2rem;background:var(--bg3);border-radius:8px;">🎬</div>';
+      html += '<div class="live-info">'
+        + '<div class="live-titre-film">' + ic + ' ' + s.titre + ' — ' + s.fmt + '</div>'
+        + '<div class="live-meta">🕐 ' + s.heureFR + ' FR / ' + s.heureQC + ' QC &nbsp;•&nbsp; ⏳ Fin dans ~' + restStr
+        + (s.diffuseur ? ' &nbsp;•&nbsp; 📡 ' + s.diffuseur : '')
+        + (s.salle     ? ' &nbsp;•&nbsp; 🏠 ' + s.salle    : '') + '</div>'
+        + '<div class="live-progress"><div class="live-progress-bar" style="width:' + pct + '%"></div></div>'
+        + '</div></div>';
+    });
+    if (dans48h.length > 0) html += _renderCarousel(dans48h, '📅 Prochaines diffusions (48h)');
+  } else {
+    titreEl.innerHTML = '🎬&nbsp; Prochaines diffusions (48h)';
+    html = _renderCarousel(dans48h, null);
+  }
+
+  html += '<div id="live-refresh-info">🔄 Mise à jour automatique toutes les heures</div>';
+  container.innerHTML = html;
+  _initCarousel();
+}
+
+
+function _renderCarousel(seances, titre) {
+  var html = '<div class="prochains-container">';
+  if (titre) html += '<div class="prochains-titre">' + titre + '</div>';
+  html += '<button class="carousel-btn prev" id="carousel-prev" onclick="_carouselNav(-1)" aria-label="Précédent">&#9664;</button>'
+        + '<div class="prochains-carousel"><div class="prochains-inner" id="carousel-inner">';
+  seances.forEach(function(s) {
+    var ic = s.fmt === '3D' ? '🥽' : '📽️';
+    var dateStr  = String(s.jour).padStart(2,'0') + '/' + String(s.mois).padStart(2,'0');
+    var titreEsc = s.titre.replace(/"/g,'&quot;').replace(/</g,'&lt;');
+    html += '<div class="prochain-card" onclick="ouvrirDetail(' + s.id + ')" title="' + titreEsc + '">';
+    html += s.affiche
+      ? '<img src="' + s.affiche + '" class="prochain-affiche" alt="' + titreEsc + '" loading="lazy">'
+      : '<div class="prochain-affiche-ph">🎬</div>';
+    html += '<div class="prochain-info">'
+      + '<div class="prochain-heure">' + ic + ' ' + s.heureFR + '</div>'
+      + '<div class="prochain-titre-court">' + s.titre + '</div>'
+      + '<div style="font-size:.68rem;color:var(--text2)">' + dateStr + '</div>'
+      + '</div></div>';
+  });
+  html += '</div></div>'
+        + '<button class="carousel-btn next" id="carousel-next" onclick="_carouselNav(1)" aria-label="Suivant">&#9654;</button>'
+        + '</div>';
+  return html;
+}
+
+
+let _carouselIdx = 0;
+const CARD_W = 136; // 120px + 16px gap
+
+function _initCarousel() {
+  const inner = document.getElementById('carousel-inner');
+  if (!inner) return;
+  _carouselIdx = 0;
+  _updateCarouselBtns();
+}
+
+function _carouselNav(dir) {
+  const inner = document.getElementById('carousel-inner');
+  if (!inner) return;
+  const visible = Math.floor(inner.parentElement.offsetWidth / CARD_W);
+  const total   = inner.children.length;
+  const maxIdx  = Math.max(0, total - visible);
+  _carouselIdx = Math.max(0, Math.min(maxIdx, _carouselIdx + dir));
+  inner.style.transform = `translateX(-${_carouselIdx * CARD_W}px)`;
+  _updateCarouselBtns();
+}
+
+function _updateCarouselBtns() {
+  const inner = document.getElementById('carousel-inner');
+  const prev  = document.getElementById('carousel-prev');
+  const next  = document.getElementById('carousel-next');
+  if (!inner || !prev || !next) return;
+  const visible = Math.floor((inner.parentElement?.offsetWidth || 600) / CARD_W);
+  const total   = inner.children.length;
+  prev.disabled = _carouselIdx <= 0;
+  next.disabled = _carouselIdx >= total - visible;
+}
+
+// Swipe touch support
+let _touchStartX = 0;
+document.addEventListener('touchstart', e => {
+  if (document.getElementById('carousel-inner')) _touchStartX = e.touches[0].clientX;
+}, {passive: true});
+document.addEventListener('touchend', e => {
+  if (!document.getElementById('carousel-inner')) return;
+  const dx = e.changedTouches[0].clientX - _touchStartX;
+  if (Math.abs(dx) > 40) _carouselNav(dx < 0 ? 1 : -1);
+});
+
+// ── Auto-refresh toutes les heures ─────────────────────────────────────
+function _scheduleLiveRefresh() {
+  const now     = new Date();
+  const msToNextHour = (60 - now.getMinutes()) * 60 * 1000 - now.getSeconds() * 1000;
+  setTimeout(() => {
+    rendreSectionLive();
+    setInterval(rendreSectionLive, 60 * 60 * 1000);
+  }, msToNextHour);
+}
+
+// ═══════════════════════════════════════════════════════════════════════
+//  HISTORIQUE — accordéon + catalogue par titre
+// ═══════════════════════════════════════════════════════════════════════
+
+// ── Accesseur centralisé des séances passées ──────────────────────
+function _getPassees() {
+  return SEANCES.filter(function(s) { return s.passee; });
+}
+
+function _groupParTitre(liste) {
+  const map = {};
+  liste.forEach(s => {
+    const k = s.titre.toLowerCase().trim();
+    if (!map[k]) map[k] = { titre:s.titre, type:s.type, affiche:s.affiche, resume:s.resume, note:s.note, diffusions:[] };
+    map[k].diffusions.push(s);
+    // Garder la meilleure affiche dispo
+    if (!map[k].affiche && s.affiche) map[k].affiche = s.affiche;
+  });
+  // Trier les diffusions par date décroissante
+  Object.values(map).forEach(g => g.diffusions.sort((a,b) => {
+    const da = new Date(a.annee,a.mois-1,a.jour);
+    const db = new Date(b.annee,b.mois-1,b.jour);
+    return db - da;
+  }));
+  // Retourner trié par titre
+  return Object.values(map).sort((a,b) => a.titre.localeCompare(b.titre,'fr'));
+}
+
+const TYPE_LABEL = {movie:'🎬 Film',tv:'📺 Série',anime:'🍥 Animé',documentaire:'🎙️ Doc',concert:'🎤 Concert',spectacle:'🎭 Spectacle'};
+
+function toggleHistorique() {
+  const btn   = document.getElementById('histo-toggle');
+  const panel = document.getElementById('histo-panel');
+  const open  = btn.classList.toggle('open');
+  panel.classList.toggle('open', open);
+  if (open && !document.getElementById('histo-grid').children.length) {
+    _rendreHistoGrille(_getPassees());
+  }
+}
+
+let _histoFiltreQuery = '';
+function filtrerHistorique() {
+  _histoFiltreQuery = document.getElementById('histo-search').value.toLowerCase().trim();
+  const filtrees = _histoFiltreQuery
+    ? _getPassees().filter(s => s.titre.toLowerCase().includes(_histoFiltreQuery))
+    : _getPassees();
+  _rendreHistoGrille(filtrees);
+}
+
+function _rendreHistoGrille(liste) {
+  const groupes = _groupParTitre(liste);
+  const grid = document.getElementById('histo-grid');
+  if (!groupes.length) {
+    grid.innerHTML = '<p class="vide-msg">Aucun résultat.</p>';
+    return;
+  }
+  grid.innerHTML = groupes.map(g => {
+    const nb = g.diffusions.length;
+    const affHtml = g.affiche
+      ? `<img src="${g.affiche}" class="histo-affiche" alt="${g.titre.replace(/"/g,'')}" loading="lazy">`
+      : `<div class="histo-affiche-ph">🎬</div>`;
+    return `<div class="histo-item" onclick="ouvrirHistoModal('${encodeURIComponent(g.titre)}')">
+      ${affHtml}
+      <div class="histo-info">
+        <div class="histo-titre">${g.titre}</div>
+        <div class="histo-meta">
+          <span class="histo-badge-nb">✕${nb} diffusion${nb>1?'s':''}</span>
+          <span class="histo-badge-type">${TYPE_LABEL[g.type]||'🎬'}</span>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function ouvrirHistoModal(titrEnc) {
+  const titre = decodeURIComponent(titrEnc);
+  const groupes = _groupParTitre(_getPassees());
+  const g = groupes.find(x => x.titre === titre);
+  if (!g) return;
+
+  const nb = g.diffusions.length;
+  const affHtml = g.affiche
+    ? `<img src="${g.affiche}" class="histo-modal-poster" alt="${g.titre.replace(/"/g,'')}">`
+    : `<div class="histo-modal-poster-ph">🎬</div>`;
+  const noteHtml = g.note ? `<span class="badge" style="background:#1a3a1a;color:#3fb950;border:1px solid #3fb950">⭐ ${g.note}/10</span>` : '';
+
+  const diffRows = g.diffusions.map(s => {
+    const fmtCls = s.fmt === '3D' ? 'd3' : 'd2';
+    const ic = s.fmt === '3D' ? '🥽' : '📽️';
+    const date = `${String(s.jour).padStart(2,'0')}/${String(s.mois).padStart(2,'0')}/${s.annee} à ${s.heureFR}`;
+    const salle = s.salle ? `<span class="histo-diff-salle">🏠 ${s.salle}</span>` : '';
+    const diff  = s.diffuseur ? `<span class="histo-diff-diff">📡 ${s.diffuseur}</span>` : '';
+    return `<div class="histo-diff-row">
+      <span class="histo-diff-date">🗓️ ${date}</span>
+      <span class="histo-diff-fmt ${fmtCls}">${ic} ${s.fmt}</span>
+      ${salle}${diff}
+    </div>`;
+  }).join('');
+
+  document.getElementById('histo-modal-inner').innerHTML = `
+    <div class="histo-modal-header">
+      ${affHtml}
+      <div class="histo-modal-info">
+        <div class="histo-modal-titre">${g.titre}</div>
+        <div class="histo-modal-stats">
+          <span class="histo-badge-nb">✕${nb} diffusion${nb>1?'s':''}</span>
+          <span class="histo-badge-type">${TYPE_LABEL[g.type]||'🎬'}</span>
+          ${noteHtml}
+        </div>
+        ${g.resume ? `<div class="histo-modal-resume">${g.resume.substring(0,280)}${g.resume.length>280?'…':''}</div>` : ''}
+      </div>
+    </div>
+    <div class="histo-diffusions">
+      <h4>📅 Historique des diffusions (${nb})</h4>
+      ${diffRows}
+    </div>`;
+
+  document.getElementById('histo-modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function fermerHistoModal(e, force) {
+  if (force || !e || e.target === document.getElementById('histo-modal-overlay')) {
+    document.getElementById('histo-modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { fermerDetail(null,true); fermerHistoModal(null,true); } });
+
+// ── Démarrage sécurisé après chargement complet du DOM ──────────────
+function _demarrage() {
+  _autoNavCalendrier(); rendreMois(); appFiltres();
+  rendreSectionLive(); _scheduleLiveRefresh(); _initCharts();
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', _demarrage);
+} else {
+  _demarrage();
+}
+// Filet de sécurité : si Chart.js n'était pas encore chargé, réessayer à window.load
+window.addEventListener('load', function() {
+  const charts = ['chartMois','chartTypes','chartFormat'];
+  const allMissing = charts.every(id => {
+    const el = document.getElementById(id);
+    return el && el.tagName === 'CANVAS'; // encore un canvas non initialisé
+  });
+  if (allMissing && typeof Chart !== 'undefined') { _initCharts(); }
+});
+</script>
+</body>
+</html>
