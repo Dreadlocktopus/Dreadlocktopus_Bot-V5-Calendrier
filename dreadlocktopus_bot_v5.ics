@@ -7,7 +7,7 @@ X-WR-CALNAME:Dreadlocktopus_Bot V5 Programmation
 X-WR-TIMEZONE:Europe/Paris
 BEGIN:VEVENT
 UID:seance-20@dreadlocktopus_bot_v5
-DTSTAMP:20260225T091354Z
+DTSTAMP:20260226T020101Z
 DTSTART:20260328T225900Z
 DTEND:20260329T005900Z
 SUMMARY:Voulzy à l'église de Boulloire  —  Laurent — 2D ((◉‿◉) S҉E҉C҉O҉T҉O҉ (◉‿◉))
@@ -16,7 +16,7 @@ LOCATION:beanscream - Secoto - Que du bonheur
 END:VEVENT
 BEGIN:VEVENT
 UID:seance-35@dreadlocktopus_bot_v5
-DTSTAMP:20260225T091354Z
+DTSTAMP:20260226T020101Z
 DTSTART:20260323T200000Z
 DTEND:20260323T220000Z
 SUMMARY:NARUTO — S03 Ép. 3 — 2D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
@@ -25,7 +25,7 @@ LOCATION:
 END:VEVENT
 BEGIN:VEVENT
 UID:seance-4@dreadlocktopus_bot_v5
-DTSTAMP:20260225T091354Z
+DTSTAMP:20260226T020101Z
 DTSTART:20260321T200000Z
 DTEND:20260321T220000Z
 SUMMARY:One Piece — S172 Ép. 1-36780 — 3D (Statik)
@@ -34,7 +34,7 @@ LOCATION:Test
 END:VEVENT
 BEGIN:VEVENT
 UID:seance-26@dreadlocktopus_bot_v5
-DTSTAMP:20260225T091354Z
+DTSTAMP:20260226T020101Z
 DTSTART:20260321T200000Z
 DTEND:20260321T220000Z
 SUMMARY:La Méthode Williams — 3D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
@@ -43,7 +43,7 @@ LOCATION:TEST
 END:VEVENT
 BEGIN:VEVENT
 UID:seance-29@dreadlocktopus_bot_v5
-DTSTAMP:20260225T091354Z
+DTSTAMP:20260226T020101Z
 DTSTART:20260306T200000Z
 DTEND:20260306T220000Z
 SUMMARY:francis lalane — 2D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
@@ -52,7 +52,7 @@ LOCATION:
 END:VEVENT
 BEGIN:VEVENT
 UID:seance-33@dreadlocktopus_bot_v5
-DTSTAMP:20260225T091354Z
+DTSTAMP:20260226T020101Z
 DTSTART:20260306T200000Z
 DTEND:20260306T220000Z
 SUMMARY:Jean michel jarre — 3D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
@@ -61,7 +61,7 @@ LOCATION:
 END:VEVENT
 BEGIN:VEVENT
 UID:seance-37@dreadlocktopus_bot_v5
-DTSTAMP:20260225T091354Z
+DTSTAMP:20260226T020101Z
 DTSTART:20260306T200000Z
 DTEND:20260306T220000Z
 SUMMARY:Interstellar — 2D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
@@ -70,7 +70,7 @@ LOCATION:
 END:VEVENT
 BEGIN:VEVENT
 UID:seance-34@dreadlocktopus_bot_v5
-DTSTAMP:20260225T091354Z
+DTSTAMP:20260226T020101Z
 DTSTART:20260304T200000Z
 DTEND:20260304T220000Z
 SUMMARY:Fallout — S02 Ép. 1 3 5 — 2D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
@@ -78,8 +78,17 @@ DESCRIPTION:Qu’en dites-vous\, Mme Maclean ?
 LOCATION:
 END:VEVENT
 BEGIN:VEVENT
+UID:seance-39@dreadlocktopus_bot_v5
+DTSTAMP:20260226T020101Z
+DTSTART:20260303T204300Z
+DTEND:20260303T224300Z
+SUMMARY:San Francisco 1985 — 3D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
+DESCRIPTION:San Francisco 1985. Frankie est un jeune danseur qui vient d’intégrer une des plus prestigieuses troupes de danse contemporaine de la ville. Il fait la connaissance de Todd\, un des danseurs de la tro
+LOCATION:
+END:VEVENT
+BEGIN:VEVENT
 UID:seance-32@dreadlocktopus_bot_v5
-DTSTAMP:20260225T091354Z
+DTSTAMP:20260226T020101Z
 DTSTART:20260302T200000Z
 DTEND:20260302T220000Z
 SUMMARY:COldplay — 2D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
@@ -88,7 +97,7 @@ LOCATION:
 END:VEVENT
 BEGIN:VEVENT
 UID:seance-38@dreadlocktopus_bot_v5
-DTSTAMP:20260225T091354Z
+DTSTAMP:20260226T020101Z
 DTSTART:20260301T200000Z
 DTEND:20260301T220000Z
 SUMMARY:Ugly Betty — S01 Ép. 1 — 2D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
@@ -97,7 +106,7 @@ LOCATION:
 END:VEVENT
 BEGIN:VEVENT
 UID:seance-5@dreadlocktopus_bot_v5
-DTSTAMP:20260225T091354Z
+DTSTAMP:20260226T020101Z
 DTSTART:20260227T200000Z
 DTEND:20260227T220000Z
 SUMMARY:Titanic — 3D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
@@ -106,56 +115,11 @@ LOCATION:Iceberg
 END:VEVENT
 BEGIN:VEVENT
 UID:seance-25@dreadlocktopus_bot_v5
-DTSTAMP:20260225T091354Z
+DTSTAMP:20260226T020101Z
 DTSTART:20260227T200000Z
 DTEND:20260227T220000Z
 SUMMARY:L'Exorciste — 2D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
 DESCRIPTION:Regan\, une adolescente\, présente depuis quelque temps d’étranges symptômes. Après avoir épuisé les solutions médicales\, la mère de Regan consulte un prêtre-psychiatre qui est rapidement convaincu q
 LOCATION:[NSFW]
-END:VEVENT
-BEGIN:VEVENT
-UID:seance-1@dreadlocktopus_bot_v5
-DTSTAMP:20260225T091354Z
-DTSTART:20260225T200000Z
-DTEND:20260225T220000Z
-SUMMARY:Roman Frayssinet  —  Roman Frayssinet — 2D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
-DESCRIPTION:Artiste / Compagnie : Roman Frayssinet
-LOCATION:Salle de Beta Test
-END:VEVENT
-BEGIN:VEVENT
-UID:seance-7@dreadlocktopus_bot_v5
-DTSTAMP:20260225T091354Z
-DTSTART:20260225T200000Z
-DTEND:20260225T220000Z
-SUMMARY:Beetlejuice Beetlejuice — 3D (nicolas.dumont)
-DESCRIPTION:À la suite d'une tragédie familiale inattendue\, trois générations de la famille Deetz rentrent dans leur maison à Winter River\, toujours hantée par Beetlejuice. Là-bas\, Lydia voit sa vie prendre un
-LOCATION:BigscreenFr  Beetlejuice Beetlejuice
-END:VEVENT
-BEGIN:VEVENT
-UID:seance-18@dreadlocktopus_bot_v5
-DTSTAMP:20260225T091354Z
-DTSTART:20260225T200000Z
-DTEND:20260225T220000Z
-SUMMARY:NARUTO — S01 Ép. 18 — 3D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
-DESCRIPTION:Naruto Uzumaki\, a hyperactive and knuckle-headed ninja\, lives in Konohagakure\, the Hidden Leaf village. Moments prior to his birth\, a huge demon known as the Kyuubi\, the Nine-tailed Fox\, attacke
-LOCATION:
-END:VEVENT
-BEGIN:VEVENT
-UID:seance-6@dreadlocktopus_bot_v5
-DTSTAMP:20260225T091354Z
-DTSTART:20260225T200000Z
-DTEND:20260225T220000Z
-SUMMARY:Love Actually — 3D (🦑🐙 ᙃɾᥱᥲᑯꙆoᥴƙtoρᥙ⳽ 🐙🦑)
-DESCRIPTION:L'amour est partout\, imprévisible\, inexplicable\, insurmontable. Il frappe quand il veut et souvent\, ça fait pas mal de dégâts... Pour le nouveau Premier Ministre britannique\, il va prendre la jol
-LOCATION:Prout
-END:VEVENT
-BEGIN:VEVENT
-UID:seance-28@dreadlocktopus_bot_v5
-DTSTAMP:20260225T091354Z
-DTSTART:20260225T194500Z
-DTEND:20260225T214500Z
-SUMMARY:La Méthode Williams — 3D ((◉‿◉) S҉E҉C҉O҉T҉O҉ (◉‿◉))
-DESCRIPTION:Focus sur la personnalité de l'entraîneur de tennis Richard Williams\, père des joueuses mondiales Venus et Serena. Il n'avait aucune expérience dans le sport mais lorsque ses filles ont eu quatre ans
-LOCATION:Secoto_fr_3D
 END:VEVENT
 END:VCALENDAR
